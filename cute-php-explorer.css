@@ -1,0 +1,57 @@
+/*
+ * The Cute PHP explorer is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * The Cute PHP explorer is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Lara Maia <dev@lara.click> © 2015
+ *
+ */
+
+table {
+    width: 75%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
+    box-shadow: 0 0 4px black;
+}
+table td {
+    padding: 3px;
+}
+table tr {
+    background-color: #fff5ff;
+}
+table tr.header {
+    background-color: #b28fb2;
+}
+table tr:nth-child(odd+1) {
+    background-color: #fff5ff;
+}
+table tr:nth-child(even) {
+    background-color: white;
+}
+
+table tr.header a {
+    color: white;
+}
+table td.size {
+    width: 100px;
+    text-align: right;
+}
+table td.size.center {
+    text-align: center;
+}
+
+table td.mtime {
+    width: 150px;
+    text-align: center;
+}
