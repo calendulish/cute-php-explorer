@@ -59,8 +59,8 @@ $CuteExplorer->read_dir();
             foreach($CuteExplorer->files as $current_file) {
                 print("<tr>\n");
                 print("<td class=\"name\"><a href=\"".$CuteExplorer->make_link($current_file)."\">$current_file</a></td>\n");
-                print("<td class=\"size\">".$CuteExplorer->get_file_size($CuteExplorer->make_link($current_file))."</td>\n");
-                print("<td class=\"mtime\">".$CuteExplorer->get_file_mtime($CuteExplorer->make_link($current_file))."</td>\n");
+                print("<td class=\"size\">".$CuteExplorer->get_file_size($current_file)."</td>\n");
+                print("<td class=\"mtime\">".$CuteExplorer->get_file_mtime($current_file)."</td>\n");
                 print("</tr>\n");
             }
         ?>

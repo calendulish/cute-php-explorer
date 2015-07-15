@@ -27,9 +27,29 @@
         }
     }
 
+    function get_public_path($file) {
+        global $_CONFIG;
+        // Get current $path from URI
+        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        // add $_CONFIG['files_dir'] if is not empty.
+        if(!empty($_CONFIG['files_dir'])) {
+            $path .= '/'.$_CONFIG['files_dir'];
+        }
+        // build the full path
+        $full_path = $path. '/'.$this->get_value('dir')."/".$file;
+        // normalize slashes and return
+        return preg_replace('#/+#', '/', $full_path);
+    }
+
+    function get_real_path($file) {
+        $path = $_SERVER['DOCUMENT_ROOT'];
+        // normalize slashes and return
+        return preg_replace('#/+#', '/', $path.'/'.$this->get_public_path($file));
+    }
+
     function get_file_size($file) {
         global $_CONFIG;
-        $rawsize = filesize($_SERVER["DOCUMENT_ROOT"].$file);
+        $rawsize = filesize($this->get_real_path($file));
 
         if($rawsize < pow(2,10)) {
             return $rawsize." bytes";
@@ -44,7 +64,7 @@
 
     function get_file_mtime($file) {
         global $_CONFIG;
-        return date($_CONFIG['file_mtime_format'], filemtime($_SERVER['DOCUMENT_ROOT'].$file));
+        return date($_CONFIG['file_mtime_format'], filemtime($this->get_real_path($file)));
     }
 
     function read_dir() {
@@ -90,12 +110,7 @@
     }
 
     function make_link($current_file) {
-        // Get current $path from URI
-        $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        // build the full path
-        $full_path = $path. '/'.$this->get_value('dir')."/".$current_file;
-        // normalize slashes and return
-        return preg_replace('#/+#', '/', $full_path);
+        return $this->get_public_path($current_file);
     }
 
     function get_previous_dir($current_directory) {
