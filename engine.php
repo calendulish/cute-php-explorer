@@ -21,20 +21,23 @@
     var $directories;
     var $files;
 
-    function get_value($param){
+    function get_value($param) {
         if(isset($_GET[$param])&&!empty($_GET[$param])) {
             return $_GET[$param];
         }
     }
 
-    function get_public_path($file) {
+    function get_config($value) {
         global $_CONFIG;
+        if(isset($_CONFIG[$value])&&!empty($_CONFIG[$value])) {
+            return $_CONFIG[$value];
+        }
+    }
+
+    function get_public_path($file) {
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-        // add $_CONFIG['files_dir'] if is not empty.
-        if(!empty($_CONFIG['files_dir'])) {
-            $path .= '/'.$_CONFIG['files_dir'];
-        }
+        $path .= '/'.$this->get_config('files_dir');
         // build the full path
         $full_path = $path. '/'.$this->get_value('dir')."/".$file;
         // normalize slashes and return
@@ -48,7 +51,6 @@
     }
 
     function get_file_size($file) {
-        global $_CONFIG;
         $rawsize = filesize($this->get_real_path($file));
 
         if($rawsize < pow(2,10)) {
@@ -63,15 +65,13 @@
     }
 
     function get_file_mtime($file) {
-        global $_CONFIG;
-        return date($_CONFIG['file_mtime_format'], filemtime($this->get_real_path($file)));
+        return date($this->get_config('file_mtime_format'), filemtime($this->get_real_path($file)));
     }
 
     function read_dir() {
-        global $_CONFIG;
         $this->directories = array();
         $this->files = array();
-        $full_path = $_CONFIG['files_dir'].'/'.$this->get_value('dir');
+        $full_path = $this->get_config('files_dir').'/'.$this->get_value('dir');
         $pDir = opendir($full_path);
 
         while(false !== ($current_file = readdir($pDir))) {
@@ -79,13 +79,13 @@
             if(substr($current_file, 0, 1) == '.') continue;
             // don't show directories from $hidden_dirs
             if(is_dir($full_path.'/'.$current_file)) {
-                if(!in_array($current_file, $_CONFIG['hidden_dirs'])) {
+                if(!in_array($current_file, $this->get_config('hidden_dirs'))) {
                     $this->directories[] = $this->get_value('dir').'/'.$current_file;
                 }
             } else { //don't show files from $hidden_files and files matched with hidden_extensions
-                if(!in_array($current_file, $_CONFIG['hidden_files'])) {
+                if(!in_array($current_file, $this->get_config('hidden_files'))) {
                     if(!in_array(strtolower(pathinfo($full_path.'/'.$current_file, PATHINFO_EXTENSION)),
-                        $_CONFIG['hidden_extensions'])) {
+                        $this->get_config('hidden_extensions'))) {
                         $this->files[] = $current_file;
                     }
                 }
