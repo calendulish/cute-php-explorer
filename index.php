@@ -30,7 +30,7 @@ $CuteExplorer->read_dir();
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
-    <link href="cute-php-explorer.css" rel="stylesheet" type="text/css" />
+    <link href="themes/<?=$CuteExplorer->get_config('theme')?>/style.css" rel="stylesheet" type="text/css" />
     <title>Cute PHP Explorer</title>
 </head>
 
