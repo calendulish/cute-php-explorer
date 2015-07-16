@@ -43,6 +43,10 @@ table tr:nth-child(even) {
 table tr.header a {
     color: white;
 }
+table td.icon {
+    width: 20px;
+    text-align: center;
+}
 table td.size {
     width: 100px;
     text-align: right;

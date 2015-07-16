@@ -21,6 +21,10 @@
     var $directories;
     var $files;
 
+    function normalize_slashes($path) {
+        return preg_replace('#/+#', '/', $path);
+    }
+
     function get_value($param) {
         if(isset($_GET[$param])&&!empty($_GET[$param])) {
             return $_GET[$param];
@@ -38,16 +42,13 @@
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $path .= '/'.$this->get_config('files_dir');
-        // build the full path
         $full_path = $path. '/'.$this->get_value('dir')."/".$file;
-        // normalize slashes and return
-        return preg_replace('#/+#', '/', $full_path);
+        return $this->normalize_slashes($full_path);
     }
 
     function get_real_path($file) {
         $path = $_SERVER['DOCUMENT_ROOT'];
-        // normalize slashes and return
-        return preg_replace('#/+#', '/', $path.'/'.$this->get_public_path($file));
+        return $this->normalize_slashes($path.'/'.$this->get_public_path($file));
     }
 
     function get_file_size($file) {
@@ -64,8 +65,24 @@
         }
     }
 
+    function get_file_extension($file) {
+        return pathinfo($this->get_real_path($file), PATHINFO_EXTENSION);
+    }
+
     function get_file_mtime($file) {
         return date($this->get_config('file_mtime_format'), filemtime($this->get_real_path($file)));
+    }
+
+    function set_icon($item) {
+        $icons_path = "icons/".$this->get_config('icon_theme');
+        if(is_dir(getcwd()."/".$item)) {
+            return $this->normalize_slashes($icons_path."/directory.svg");
+        }
+
+        switch($this->get_file_extension($item)) {
+            default:
+                return $this->normalize_slashes($icons_path."/unknown.svg");
+        }
     }
 
     function read_dir() {

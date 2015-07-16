@@ -20,6 +20,13 @@
 // if your files is on another directory, set here.
  $_CONFIG['files_dir']          = ".";
 
+// You can define an icon size (in pixels)
+$_CONFIG['icon_size'] = 28;
+// You can define a theme. Currently you can use:
+// purple or blue.
+$_CONFIG['icon_theme'] = "purple";
+
+
  // You can hidden some files,folder,extensions if you need.
  $_CONFIG['hidden_dirs']       = array("images", "tmp");
  $_CONFIG['hidden_files']      = array("");

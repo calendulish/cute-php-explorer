@@ -37,6 +37,7 @@ $CuteExplorer->read_dir();
 <body>
     <table>
         <tr class="header">
+            <td class="icon"></td>
             <td class="name"><a>name</a></td>
             <td class="size"><a>size</a></td>
             <td class="mtime"><a>modified time</a></td>
@@ -45,12 +46,14 @@ $CuteExplorer->read_dir();
             // make a item for previous directory
             if($CuteExplorer->get_value('dir')) {
                 print("<tr>\n");
+                print("<td class=\"icon\"><img src=\"".$CuteExplorer->set_icon($_GET['dir'])."\" width=".$CuteExplorer->get_config("icon_size")." height=auto /></td>\n");
                 print("<td class=\"name\" colspan=3><a href=\"".$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))."\">..</a></td>\n");
                 print("</tr>\n");
             }
             // make a item for each folder
             foreach($CuteExplorer->directories as $current_directory) {
                 print("<tr>\n");
+                print("<td class=\"icon\"><img src=\"".$CuteExplorer->set_icon($current_directory)."\" width=".$CuteExplorer->get_config("icon_size")." height=auto /></td>\n");
                 print("<td class=\"name\"><a href=\"".$CuteExplorer->make_query($current_directory)."\">".basename($current_directory)."</a></td>\n");
                 print("<td class=\"size center\" colspan=2>Folder</td>\n");
                 print("</tr>\n");
@@ -58,6 +61,7 @@ $CuteExplorer->read_dir();
             // make a item for each file
             foreach($CuteExplorer->files as $current_file) {
                 print("<tr>\n");
+                print("<td class=\"icon\"><img src=\"".$CuteExplorer->set_icon($current_file)."\" width=".$CuteExplorer->get_config("icon_size")." height=auto /></td>\n");
                 print("<td class=\"name\"><a href=\"".$CuteExplorer->make_link($current_file)."\">$current_file</a></td>\n");
                 print("<td class=\"size\">".$CuteExplorer->get_file_size($current_file)."</td>\n");
                 print("<td class=\"mtime\">".$CuteExplorer->get_file_mtime($current_file)."</td>\n");
