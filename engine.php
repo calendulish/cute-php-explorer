@@ -74,7 +74,7 @@
     }
 
     function set_icon($item) {
-        $icons_path = "icons/".$this->get_config('icon_theme');
+        $icons_path = "themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
         if(is_dir(getcwd()."/".$item)) {

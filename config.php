@@ -24,7 +24,7 @@
 $_CONFIG['icon_size'] = 28;
 // You can define a theme. Currently you can use:
 // purple or blue.
-$_CONFIG['icon_theme'] = "purple";
+$_CONFIG['theme'] = "purple";
 
 // You can merge some extensions using this array.
 // Example 1:
