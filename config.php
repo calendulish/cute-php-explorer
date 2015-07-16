@@ -26,6 +26,23 @@ $_CONFIG['icon_size'] = 28;
 // purple or blue.
 $_CONFIG['icon_theme'] = "purple";
 
+// You can merge some extensions using this array.
+// Example 1:
+// If you want only one icon for all image types, you can write:
+// "<image>" => array("jpg", "png", "gif", "svg", ...);
+// and put a file called "<image>.svg" on the folder of current icon theme.
+//
+// Example 2:
+// If you want some extensions with same icon file, you can write:
+// "txt" => array("doc", "conf");
+// in this example, all files *.doc and *.conf will use the txt icon.
+$_CONFIG['merged_extensions'] = array(
+    "txt"      => array("conf", "config", "doc", "docx"),
+    "xls"      => array("xlsx"),
+    "tar.gz"   => array("tgz"),
+    "odp"      => array("ppt", "pptx", "pps", "ppsx"),
+    "jpg"      => array("jpeg"),
+);
 
  // You can hidden some files,folder,extensions if you need.
  $_CONFIG['hidden_dirs']       = array("images", "tmp");

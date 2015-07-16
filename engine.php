@@ -66,7 +66,7 @@
     }
 
     function get_file_extension($file) {
-        return pathinfo($this->get_real_path($file), PATHINFO_EXTENSION);
+        return strtolower(pathinfo($this->get_real_path($file), PATHINFO_EXTENSION));
     }
 
     function get_file_mtime($file) {
@@ -75,13 +75,25 @@
 
     function set_icon($item) {
         $icons_path = "icons/".$this->get_config('icon_theme');
+        $icon = $this->get_file_extension($item).".svg";
+
         if(is_dir(getcwd()."/".$item)) {
             return $this->normalize_slashes($icons_path."/directory.svg");
         }
 
-        switch($this->get_file_extension($item)) {
-            default:
-                return $this->normalize_slashes($icons_path."/unknown.svg");
+        // For each extension in $_CONFIG['merged_extensions'], check your values
+        foreach(array_keys($this->get_config("merged_extensions")) as $extension) {
+            // If current file extension is found on these values
+            // change the icon to reflect the current $extension value.
+            if(in_array($this->get_file_extension($item), $this->get_config("merged_extensions")[$extension])) {
+                $icon = $extension.".svg";
+            }
+        }
+
+        if(file_exists($icons_path."/".$icon)) {
+            return $this->normalize_slashes($icons_path."/".$icon);
+        } else {
+            return $this->normalize_slashes($icons_path."/unknown.svg");
         }
     }
 
