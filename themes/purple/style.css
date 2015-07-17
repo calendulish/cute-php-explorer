@@ -24,14 +24,14 @@ table {
     text-align: left;
     box-shadow: 0 0 4px black;
 }
-table td {
-    padding: 3px;
-}
 table tr {
     background-color: #fff5ff;
 }
 table tr.header {
     background-color: #b28fb2;
+}
+table tr.header a {
+    color: white;
 }
 table tr:nth-child(odd+1) {
     background-color: #fff5ff;
@@ -39,9 +39,11 @@ table tr:nth-child(odd+1) {
 table tr:nth-child(even) {
     background-color: white;
 }
-
-table tr.header a {
-    color: white;
+table tr:hover {
+    background-color: rgba(130, 74, 128, 0.3);
+}
+table td {
+    padding: 3px;
 }
 table td.icon {
     width: 20px;

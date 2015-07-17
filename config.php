@@ -18,7 +18,7 @@
  */
 
 // if your files is on another directory, set here.
- $_CONFIG['files_dir']          = ".";
+ $_CONFIG['files_dir'] = ".";
 
 // You can define an icon size (in pixels)
 $_CONFIG['icon_size'] = 28;

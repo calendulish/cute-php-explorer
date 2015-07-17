@@ -26,14 +26,14 @@ table {
     box-shadow: 0 0 4px black;
     font-family: Tahoma, Geneva, sans-serif;
 }
-table td {
-    padding: 3px;
-}
 table tr {
     background-color: #cce0ff;
 }
 table tr.header {
     background-color: #0066ff;
+}
+table tr.header a {
+    color: white;
 }
 table tr:nth-child(odd+1) {
     background-color: #cce0ff;
@@ -41,9 +41,11 @@ table tr:nth-child(odd+1) {
 table tr:nth-child(even) {
     background-color: #e6f0ff;
 }
-
-table tr.header a {
-    color: white;
+table tr:hover {
+    background-color: rgba(0, 102, 255, 0.5);
+}
+table td {
+    padding: 3px;
 }
 table td.icon {
     width: 20px;
