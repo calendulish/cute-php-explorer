@@ -30,7 +30,7 @@ $CuteExplorer->read_dir();
 <head>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
-    <link href="themes/<?=$CuteExplorer->get_config('theme')?>/style.css" rel="stylesheet" type="text/css" />
+    <link href="<?=$CuteExplorer->set_theme()?>" rel="stylesheet" type="text/css" />
     <title><?=$CuteExplorer->get_config('title')?></title>
 </head>
 

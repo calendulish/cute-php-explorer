@@ -73,6 +73,16 @@
         return date($this->get_config('file_mtime_format'), filemtime($this->get_real_path($file)));
     }
 
+    function set_theme() {
+        $full_path = "themes/".$this->get_config('theme')."/style.css";
+        // If the theme doesn't exist, try the fallback css
+        if(!file_exists($full_path)) {
+            return "themes/style.css";
+        }
+
+        return $full_path;
+    }
+
     function set_icon($item) {
         $icons_path = "themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
@@ -92,6 +102,8 @@
 
         if(file_exists($icons_path."/".$icon)) {
             return $this->normalize_slashes($icons_path."/".$icon);
+        } elseif(file_exists("themes/icons/".$icon)){
+            return "themes/icons/".$icon;
         } else {
             return $this->normalize_slashes($icons_path."/unknown.svg");
         }
