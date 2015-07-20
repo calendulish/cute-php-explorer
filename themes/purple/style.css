@@ -21,8 +21,11 @@
      margin: 0 auto;
  }
  .current_directory {
-     background-color: #fff5ff;
+     background-color: #fff9ff;
      padding: 3px;
+     text-align: left;
+     margin: 0 auto 10px;
+     box-shadow: 0 0 1px grey;
  }
  .title {
      color: #825f82;

@@ -42,7 +42,7 @@
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         $path .= '/'.$this->get_config('files_dir');
-        $full_path = $path. '/'.$this->get_value('dir')."/".$file;
+        $full_path = $path.'/'.$this->get_value('dir')."/".$file;
         return $this->normalize_slashes($full_path);
     }
 
@@ -87,7 +87,7 @@
         $icons_path = "themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
-        if(is_dir(getcwd()."/".$item)) {
+        if(is_dir(getcwd()."/".$this->get_config('files_dir')."/".$item)) {
             return $this->normalize_slashes($icons_path."/directory.svg");
         }
 

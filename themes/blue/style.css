@@ -24,6 +24,9 @@
  .current_directory {
      background-color: #cce0ff;
      padding: 3px;
+     text-align: left;
+     margin: 0 auto 10px;
+     box-shadow: 0 0 1px grey;
  }
  .title {
      color: #0066ff;
