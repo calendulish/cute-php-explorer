@@ -31,10 +31,16 @@ $CuteExplorer->read_dir();
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8" />
     <link href="themes/<?=$CuteExplorer->get_config('theme')?>/style.css" rel="stylesheet" type="text/css" />
-    <title>Cute PHP Explorer</title>
+    <title><?=$CuteExplorer->get_config('title')?></title>
 </head>
 
 <body>
+    <h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
+    <?php if($CuteExplorer->get_value('dir')) {
+        print('<p class="current_directory">~'.$CuteExplorer->get_value('dir').'</p>');
+    } else {
+        print('<p class="current_directory">~/</p>');
+    }?>
     <table>
         <tr class="header">
             <td class="icon"></td>

@@ -17,14 +17,23 @@
  *
  */
 
-table {
-    width: 75%;
-    margin: 0 auto;
+ body {
+     width: 75%;
+     margin: 0 auto;
+ }
+ .current_directory {
+     background-color: #cce0ff;
+     padding: 3px;
+ }
+ .title {
+     color: #0066ff;
+ }
+ table {
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
     box-shadow: 0 0 4px black;
-    font-family: Tahoma, Geneva, sans-serif;
 }
 table tr {
     background-color: #cce0ff;

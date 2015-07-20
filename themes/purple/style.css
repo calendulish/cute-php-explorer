@@ -16,9 +16,19 @@
  *
  */
 
-table {
-    width: 75%;
-    margin: 0 auto;
+ body {
+     width: 75%;
+     margin: 0 auto;
+ }
+ .current_directory {
+     background-color: #fff5ff;
+     padding: 3px;
+ }
+ .title {
+     color: #825f82;
+ }
+ table {
+    width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
     text-align: left;
