@@ -36,11 +36,11 @@ $CuteExplorer->read_dir();
 
 <body>
     <h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
-    <?php if($CuteExplorer->get_value('dir')) {
-        print('<p class="current_directory">~'.$CuteExplorer->get_value('dir').'</p>');
-    } else {
-        print('<p class="current_directory">~/</p>');
-    }?>
+<?php if($CuteExplorer->get_value('dir')) {
+    printf("%4s%s\n", "", "<p class='current_directory'>~".$CuteExplorer->get_value('dir')."</p>");
+} else {
+    printf("%4s%s\n", "", "<p class='current_directory'>~/</p>");
+}?>
     <table>
         <tr class="header">
             <td class="icon"></td>
