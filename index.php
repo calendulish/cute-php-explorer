@@ -88,6 +88,9 @@ $CuteExplorer->read_dir();
     }
 ?>
     </table>
-<body>
+    <p>Cute PHP Explorer © 2015 &lt;dev@lara.click&gt;</p>
+    <p>The icons are based on MeliaSVG icon theme pack.<br/>
+       Thanks to Andrea Soragna.</p>
+</body>
 
 </html>
