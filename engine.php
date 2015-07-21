@@ -54,14 +54,14 @@
     function get_file_size($file) {
         $rawsize = filesize($this->get_real_path($file));
 
-        if($rawsize < pow(2,10)) {
+        if($rawsize < pow(2, 10)) {
             return $rawsize." bytes";
-        } elseif($rawsize < pow(2,20)) {
-            return round($rawsize / pow(2,10), 2)." Kb";
-        } elseif($rawsize < pow(2,30)) {
-            return round($rawsize / pow(2,20), 2)." Mb";
+        } elseif($rawsize < pow(2, 20)) {
+            return round($rawsize / pow(2, 10), 2)." Kb";
+        } elseif($rawsize < pow(2, 30)) {
+            return round($rawsize / pow(2, 20), 2)." Mb";
         } else {
-            return round($rawsize / pow(2,30), 2)." Gb";
+            return round($rawsize / pow(2, 30), 2)." Gb";
         }
     }
 

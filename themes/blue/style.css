@@ -17,21 +17,21 @@
  *
  */
 
- body {
-     width: 75%;
-     margin: 0 auto;
- }
- .current_directory {
-     background-color: #cce0ff;
-     padding: 3px;
-     text-align: left;
-     margin: 0 auto 10px;
-     box-shadow: 0 0 1px grey;
- }
- .title {
-     color: #0066ff;
- }
- table {
+body {
+    width: 75%;
+    margin: 0 auto;
+}
+.current_directory {
+    background-color: #cce0ff;
+    padding: 3px;
+    text-align: left;
+    margin: 0 auto 10px;
+    box-shadow: 0 0 1px grey;
+}
+.title {
+    color: #0066ff;
+}
+table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
@@ -54,25 +54,25 @@ table tr:nth-child(even) {
     background-color: #e6f0ff;
 }
 table tr:hover {
+    background-color: darkblue;
     background-color: rgba(0, 102, 255, 0.5);
 }
 table td {
     padding: 3px;
 }
-table td.icon {
+table .icon {
     width: 20px;
     text-align: center;
 }
-table td.size {
+table .size {
     width: 100px;
     text-align: right;
 }
-table td.size.center {
+table .center {
     text-align: center;
+    color: grey;
 }
-
-table td.mtime {
-    width: 150px;
+table .mtime {
     text-align: right;
     padding-right: 10px;
 }

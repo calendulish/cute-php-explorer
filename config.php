@@ -60,5 +60,3 @@ $_CONFIG['merged_extensions'] = array(
 // You can see the available formats at:
 // http://php.net/manual/en/function.date.php
 $_CONFIG['file_mtime_format'] = "M d, Y - h:m";
-
-?>
