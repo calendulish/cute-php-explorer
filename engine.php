@@ -114,7 +114,11 @@
         } elseif(file_exists("themes/icons/".$icon)){
             return "themes/icons/".$icon;
         } else {
-            return $this->normalize_slashes($icons_path."/unknown.svg");
+            if(file_exists($icons_path."/unknown.svg")) {
+                return $this->normalize_slashes($icons_path."/unknown.svg");
+            } else {
+                return "themes/icons/unknown.svg";
+            }
         }
     }
 
