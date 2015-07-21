@@ -45,6 +45,9 @@ $_CONFIG['merged_extensions'] = array(
     "tar.gz"   => array("tgz"),
     "odp"      => array("ppt", "pptx", "pps", "ppsx"),
     "jpg"      => array("jpeg"),
+    "html"     => array("htm"),
+    "py"       => array("pyo", "pyc", "pyd", "pyw"),
+    "pl"       => array("plx","perl"),
 );
 
  // You can hidden some files,folder,extensions if you need.
