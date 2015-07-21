@@ -72,5 +72,6 @@ table td.size.center {
 
 table td.mtime {
     width: 150px;
-    text-align: center;
+    text-align: right;
+    padding-right: 10px;
 }

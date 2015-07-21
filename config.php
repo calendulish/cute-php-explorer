@@ -59,6 +59,6 @@ $_CONFIG['merged_extensions'] = array(
 // Adjust the file mtime (modified time) format here.
 // You can see the available formats at:
 // http://php.net/manual/en/function.date.php
-$_CONFIG['file_mtime_format'] = "d.m.y h:m";
+$_CONFIG['file_mtime_format'] = "M d, Y - h:m";
 
 ?>

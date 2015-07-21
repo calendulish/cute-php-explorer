@@ -44,9 +44,9 @@ $CuteExplorer->read_dir();
     <table>
         <tr class="header">
             <td class="icon"></td>
-            <td class="name"><a>name</a></td>
-            <td class="size"><a>size</a></td>
-            <td class="mtime"><a>modified time</a></td>
+            <td class="name"><a>Name</a></td>
+            <td class="size"><a>Size</a></td>
+            <td class="mtime"><a>Modified Time</a></td>
         </tr>
 <?php
     // make a item for previous directory
