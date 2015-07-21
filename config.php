@@ -48,6 +48,7 @@ $_CONFIG['merged_extensions'] = array(
     "html"     => array("htm"),
     "py"       => array("pyo", "pyc", "pyd", "pyw"),
     "pl"       => array("plx","perl"),
+    "sh"       => array("zsh", "csh", "tcsh", "ksh", "run", "fish", "bash"),
 );
 
  // You can hidden some files,folder,extensions if you need.
