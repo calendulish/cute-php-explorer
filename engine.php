@@ -66,7 +66,16 @@
     }
 
     function get_file_extension($file) {
-        return strtolower(pathinfo($this->get_real_path($file), PATHINFO_EXTENSION));
+        $extension = strtolower(pathinfo($this->get_real_path($file), PATHINFO_EXTENSION));
+        // FIXME: Workaround for tar.xx extensions until mimetype support is available here.
+        $sub = explode(".", $file);
+        if(count($sub) > 2) {
+            if($sub[count($sub)-2] == "tar") {
+                return "tar.".$extension;
+            }
+        }
+
+        return $extension;
     }
 
     function get_file_mtime($file) {
