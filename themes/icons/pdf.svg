@@ -14,8 +14,8 @@
    height="48"
    id="svg2"
    version="1.1"
-   inkscape:version="0.47pre4 r22446"
-   sodipodi:docname="application-pdf.svg"
+   inkscape:version="0.48.5 r10040"
+   sodipodi:docname="pdf.svg"
    inkscape:export-filename="/home/andrea/Documenti/MeliaeSVG/48/mimetypes/png/text-x-preview.png"
    inkscape:export-xdpi="240"
    inkscape:export-ydpi="240">
@@ -32,13 +32,6 @@
          offset="1"
          id="stop4207" />
     </linearGradient>
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 526.18109 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_z="744.09448 : 526.18109 : 1"
-       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
-       id="perspective10" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient4203"
@@ -48,38 +41,6 @@
        x2="15.481234"
        y2="1013.3396"
        gradientUnits="userSpaceOnUse" />
-    <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="1046.2566"
-       x2="23.999998"
-       y1="1010.4678"
-       x1="23.999998"
-       id="linearGradient3620"
-       xlink:href="#linearGradient3614"
-       inkscape:collect="always" />
-    <linearGradient
-       gradientUnits="userSpaceOnUse"
-       y2="1044.2721"
-       x2="37.868271"
-       y1="1014.3969"
-       x1="14.020815"
-       id="linearGradient3612"
-       xlink:href="#linearGradient3606"
-       inkscape:collect="always" />
-    <inkscape:perspective
-       sodipodi:type="inkscape:persp3d"
-       inkscape:vp_x="0 : 0.5 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_z="1 : 0.5 : 1"
-       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
-       id="perspective2824" />
-    <inkscape:perspective
-       id="perspective10-6"
-       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
-       inkscape:vp_z="744.09448 : 526.18109 : 1"
-       inkscape:vp_y="0 : 1000 : 0"
-       inkscape:vp_x="0 : 526.18109 : 1"
-       sodipodi:type="inkscape:persp3d" />
     <linearGradient
        id="linearGradient3606">
       <stop
@@ -91,37 +52,6 @@
          offset="1"
          style="stop-color:#de220c;stop-opacity:1;" />
     </linearGradient>
-    <linearGradient
-       id="linearGradient3614">
-      <stop
-         id="stop3616"
-         offset="0"
-         style="stop-color:#ffffff;stop-opacity:1;" />
-      <stop
-         id="stop3618"
-         offset="1"
-         style="stop-color:#dcdcdc;stop-opacity:1;" />
-    </linearGradient>
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3614"
-       id="linearGradient3732"
-       gradientUnits="userSpaceOnUse"
-       x1="23.999998"
-       y1="1010.4678"
-       x2="23.999998"
-       y2="1046.2566"
-       gradientTransform="matrix(0.98187728,-0.18951783,0.18951783,0.98187728,-233.22235,-956.74492)" />
-    <linearGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient3606"
-       id="linearGradient3737"
-       gradientUnits="userSpaceOnUse"
-       x1="14.020815"
-       y1="1014.3969"
-       x2="37.868271"
-       y2="1044.2721"
-       gradientTransform="translate(-71.846807,-7.1351392)" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient3606"
