@@ -26,7 +26,7 @@ $_CONFIG['title'] = "Cute PHP Explorer";
 $_CONFIG['icon_size'] = 28;
 
 // You can define a theme. Currently you can use:
-// purple or blue.
+// purple, blue or "386".
 $_CONFIG['theme'] = "purple";
 
 // You can merge some extensions using this array.
