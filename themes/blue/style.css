@@ -20,6 +20,7 @@
 body {
     width: 75%;
     margin: 0 auto;
+    font-family: Tahoma, Geneva, sans-serif;
 }
 .current_directory {
     background-color: #cce0ff;
