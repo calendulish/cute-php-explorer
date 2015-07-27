@@ -29,6 +29,14 @@ body {
   color: #bbb;
   font-family: DOS, "Lucida Console", "Courier New", Courier, monospace;
 }
+p {
+  padding: 9px 14px 9px 14px;
+  margin: 9px 4px 9px 4px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  border: 2px solid #bbb;
+}
 .title {
   padding: 16px 21px;
   margin-bottom: 20px;
@@ -68,23 +76,20 @@ table .icon {
   width: 20px;
   text-align: center;
 }
+table .name {
+    width: 100%;
+}
 table .size {
-  width: 100px;
   text-align: right;
+  padding-right: 10px;
+  white-space: nowrap;
 }
 table .center {
   text-align: center;
   color: grey;
 }
 table .mtime {
-  text-align: right;
-  padding-right: 10px;
-}
-p {
-  padding: 9px 14px 9px 14px;
-  margin: 9px 4px 9px 4px;
-  font-size: 12px;
   text-align: center;
-  color: #fff;
-  border: 2px solid #bbb;
+  padding-right: 10px;
+  white-space: nowrap;
 }
