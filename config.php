@@ -52,7 +52,7 @@ $_CONFIG['merged_extensions'] = array(
 );
 
  // You can hidden some files,folder,extensions if you need.
- $_CONFIG['hidden_dirs']       = array("images", "tmp");
+ $_CONFIG['hidden_dirs']       = array("themes");
  $_CONFIG['hidden_files']      = array("");
  $_CONFIG['hidden_extensions'] = array("php", "css");
 
