@@ -17,6 +17,13 @@
  *
  */
 
+// Use the file cute-php-explorer/config.php for setting configure
+// options for cute-php-explorer.
+
+// You can put anything in this file, and it don't needs to be updated.
+// Only update files from cute-php-explorer folder. Remember to backing
+// up your config.php before update.
+
 // don't write anything before that include
 include_once('cute-php-explorer/init.php');
 // Here you can put your php functions
