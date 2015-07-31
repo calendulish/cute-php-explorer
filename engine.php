@@ -128,6 +128,11 @@
         $this->directories = array();
         $this->files = array();
         $full_path = $this->get_config('files_dir').'/'.$this->get_value('dir');
+        // If the param is not a directory, show an error
+        if(!is_dir($full_path)) {
+            header('Location: index.php?error_code=404');
+        }
+
         $pDir = opendir($full_path);
 
         while(false !== ($current_file = readdir($pDir))) {
