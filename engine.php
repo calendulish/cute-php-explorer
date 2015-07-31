@@ -41,6 +41,8 @@
     function get_public_path($file) {
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+        // FIXME: Remove the index.php from $path
+        $path = str_replace("index.php", "", $path);
         $path .= '/'.$this->get_config('files_dir');
         $full_path = $path.'/'.$this->get_value('dir')."/".$file;
         return $this->normalize_slashes($full_path);

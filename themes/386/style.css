@@ -1,0 +1,95 @@
+  /*
+ * The Cute PHP explorer is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * The Cute PHP explorer is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Lara Maia <dev@lara.click> © 2015
+ * Acidhub <contact@acidhub.click> (ↄ) 2015
+ *
+ */
+
+@font-face {
+  font-family: 'DOS';
+  src: url('Fixedsys500c.woff');
+  src: local('☺'), url('Fixedsys500c.woff') format('woff')
+}
+body {
+  width: 85%;
+  margin: 0 auto;
+  background-color: #000084;
+  color: #bbb;
+  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace;
+}
+p {
+  padding: 9px 14px 9px 14px;
+  margin: 9px 4px 9px 4px;
+  font-size: 12px;
+  text-align: center;
+  color: #fff;
+  border: 2px solid #bbb;
+}
+.title {
+  padding: 16px 21px;
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 20px;
+  color: #fff;
+  background-color: #0aa;
+  border: 4px double #fff;
+  box-shadow: 0 0 0 4px #0aa
+}
+.current_directory {
+  padding: 5px;
+  color: #bbb;
+  background-color: #000;
+  border: 0;
+  text-align: left;
+  font-size: 18px;
+}
+table {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+}
+table .header{
+  background-color: #bbb;
+  color: darkblue;
+}
+table tr:hover {
+  background-color: #0aa;
+  color: white;
+}
+table td {
+  padding: 3px;
+  border-top: 2px solid darkgray;
+}
+table .icon {
+  width: 20px;
+  text-align: center;
+}
+table .name {
+    width: 100%;
+}
+table .size {
+  text-align: right;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+table .center {
+  text-align: center;
+  color: grey;
+}
+table .mtime {
+  text-align: center;
+  padding-right: 10px;
+  white-space: nowrap;
+}

@@ -26,7 +26,7 @@ $_CONFIG['title'] = "Cute PHP Explorer";
 $_CONFIG['icon_size'] = 28;
 
 // You can define a theme. Currently you can use:
-// purple or blue.
+// purple, blue or "386".
 $_CONFIG['theme'] = "purple";
 
 // You can merge some extensions using this array.
@@ -52,7 +52,7 @@ $_CONFIG['merged_extensions'] = array(
 );
 
  // You can hidden some files,folder,extensions if you need.
- $_CONFIG['hidden_dirs']       = array("images", "tmp");
+ $_CONFIG['hidden_dirs']       = array("themes");
  $_CONFIG['hidden_files']      = array("");
  $_CONFIG['hidden_extensions'] = array("php", "css");
 
@@ -60,6 +60,11 @@ $_CONFIG['merged_extensions'] = array(
 // You can see the available formats at:
 // http://php.net/manual/en/function.date.php
 $_CONFIG['file_mtime_format'] = "M d, Y - h:m";
+
+// Adjust the timezone here.
+// You can see the available timzeones at:
+// http://php.net/manual/en/timezones.php
+$_CONFIG['timezone'] = "Etc/UTC";
 
 // You can define users and special permissions here.
 // Use the securepass.php for generate a secure hash for your password.

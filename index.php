@@ -25,6 +25,8 @@ include_once("engine.php");
 $CuteExplorer = new CuteExplorer();
 $CuteExplorer->read_dir();
 
+date_default_timezone_set($CuteExplorer->get_config("timezone"));
+
 // If the user try to login, check if the password is correct.
 if(isset($_POST['login'])) {
     $user_input = $_POST['passwd'];
@@ -75,6 +77,25 @@ if($CuteExplorer->get_value('dir')) {
     <meta charset="utf-8" />
     <link href="<?=$CuteExplorer->set_theme()?>" rel="stylesheet" type="text/css" />
     <title><?=$CuteExplorer->get_config('title')?></title>
+    <script type="text/javascript">
+    function change(style){
+        mtime = document.getElementsByClassName('mtime');
+        for(var i = 0; i < mtime.length; i++) {
+            mtime[i].style.display = style;
+        };
+    };
+
+    function check_size() {
+        var width = window.innerWidth
+        || document.documentElement.clientWidth
+        || document.body.clientWidth;
+
+        if(width < 700) change('none'); else change('table-cell');
+    }
+
+    window.onload = check_size;
+    window.addEventListener('resize', check_size);
+    </script>
 </head>
 
 <body>

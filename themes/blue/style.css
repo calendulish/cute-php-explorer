@@ -65,15 +65,20 @@ table .icon {
     width: 20px;
     text-align: center;
 }
+table .name {
+    width: 100%;
+}
 table .size {
-    width: 100px;
     text-align: right;
+    padding-right: 10px;
+    white-space: nowrap;
 }
 table .center {
     text-align: center;
     color: grey;
 }
 table .mtime {
-    text-align: right;
+    text-align: center;
     padding-right: 10px;
+    white-space: nowrap;
 }
