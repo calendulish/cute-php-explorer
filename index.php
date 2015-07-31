@@ -59,7 +59,7 @@ date_default_timezone_set($CuteExplorer->get_config("timezone"));
 <body>
 <?php
 if($CuteExplorer->get_value('error_code') == 404) {
-    print('<h1 class="title">The file or directory you tried to access does not exist.');
+    print('<h1 class="title">The file or directory you tried to access does not exist.</h1>');
     exit(1);
 }
 
