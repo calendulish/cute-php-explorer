@@ -58,17 +58,19 @@ date_default_timezone_set($CuteExplorer->get_config("timezone"));
 
 <body>
 <?php
-    if($CuteExplorer->get_value('error_code') == 404) {
-        print('<h1 class="title">The file or directory you tried to access does not exist.');
-        exit(1);
-    }
-?>
-    <h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
-<?php if($CuteExplorer->get_value('dir')) {
-    printf("%4s%s\n", "", "<p class='current_directory'>~".$CuteExplorer->get_value('dir')."</p>");
+if($CuteExplorer->get_value('error_code') == 404) {
+    print('<h1 class="title">The file or directory you tried to access does not exist.');
+    exit(1);
+}
+
+print('<h1 class="title">'.$CuteExplorer->get_config('title').'</h1>');
+
+if($CuteExplorer->get_value('dir')) {
+    print('<p class="current_directory">~'.$CuteExplorer->get_value('dir').'</p>');
 } else {
-    printf("%4s%s\n", "", "<p class='current_directory'>~/</p>");
-}?>
+    print('<p class="current_directory">~/</p>');
+}
+?>
     <table>
         <tr class="header">
             <td class="icon"></td>
