@@ -15,7 +15,7 @@ include_once('init.php');
 
 <body>
     <!-- Here you can put your body defs/tags -->
-    <?php include_once('downloads.php'); ?>
+    <?php include_once('explorer.php'); ?>
     <!-- Here you can put more body defs/tags -->
 </body>
 
