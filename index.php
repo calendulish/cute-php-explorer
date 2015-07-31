@@ -1,6 +1,6 @@
 <?php
 // don't write anything before that include
-include_once('init.php');
+include_once('cute-php-explorer/init.php');
 // Here you can put your php functions
 ?>
 
@@ -9,13 +9,13 @@ include_once('init.php');
 
 <head>
     <!-- don't write anything before that include -->
-    <?php include_once('head.php'); ?>
+    <?php include_once('cute-php-explorer/head.php'); ?>
     <!-- Here you can put more head tags -->
 </head>
 
 <body>
     <!-- Here you can put your body defs/tags -->
-    <?php include_once('explorer.php'); ?>
+    <?php include_once('cute-php-explorer/explorer.php'); ?>
     <!-- Here you can put more body defs/tags -->
 </body>
 
