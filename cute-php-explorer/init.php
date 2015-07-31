@@ -19,7 +19,6 @@
 
 session_start();
 
-include_once("config.php");
 include_once("engine.php");
 
 $CuteExplorer = new CuteExplorer();

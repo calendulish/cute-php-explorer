@@ -25,6 +25,7 @@
 // up your config.php before update.
 
 // don't write anything before that include
+include_once('config.php');
 include_once('cute-php-explorer/init.php');
 // Here you can put your php functions
 ?>
