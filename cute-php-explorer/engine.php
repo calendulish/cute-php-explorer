@@ -85,17 +85,19 @@
     }
 
     function set_theme() {
-        $full_path = "themes/".$this->get_config('theme')."/style.css";
+        $current_dir = basename(getcwd());
+        $full_path = $current_dir."/themes/".$this->get_config('theme')."/style.css";
         // If the theme doesn't exist, try the fallback css
         if(!file_exists($full_path)) {
-            return "themes/style.css";
+            return $current_dir."/themes/style.css";
         }
 
         return $full_path;
     }
 
     function set_icon($item) {
-        $icons_path = "themes/".$this->get_config('theme')."/icons/";
+        $current_dir = basename(getcwd());
+        $icons_path = $current_dir."/themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
         if(is_dir(getcwd()."/".$this->get_config('files_dir')."/".$item)) {
@@ -114,12 +116,12 @@
         if(file_exists($icons_path."/".$icon)) {
             return $this->normalize_slashes($icons_path."/".$icon);
         } elseif(file_exists("themes/icons/".$icon)){
-            return "themes/icons/".$icon;
+            return $current_dir."/themes/icons/".$icon;
         } else {
             if(file_exists($icons_path."/unknown.svg")) {
                 return $this->normalize_slashes($icons_path."/unknown.svg");
             } else {
-                return "themes/icons/unknown.svg";
+                return $current_dir."/themes/icons/unknown.svg";
             }
         }
     }
