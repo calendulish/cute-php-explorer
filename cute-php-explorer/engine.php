@@ -38,19 +38,22 @@
         }
     }
 
-    function get_public_path($file) {
+    function get_public_path($file, $type = "file") {
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         // FIXME: Remove the index.php from $path
         $path = str_replace("index.php", "", $path);
         $path .= '/'.$this->get_config('files_dir');
-        $full_path = $path.'/'.$this->get_value('dir')."/".$file;
-        return $this->normalize_slashes($full_path);
+        if($type != 'dir') {
+            $path .= '/'.$this->get_value('dir');
+        }
+        $path .= "/".$file;
+        return $this->normalize_slashes($path);
     }
 
-    function get_real_path($file) {
+    function get_real_path($file, $type = "file") {
         $path = $_SERVER['DOCUMENT_ROOT'];
-        return $this->normalize_slashes($path.'/'.$this->get_public_path($file));
+        return $this->normalize_slashes($path.'/'.$this->get_public_path($file, $type));
     }
 
     function get_file_size($file) {
@@ -85,7 +88,7 @@
     }
 
     function set_theme() {
-        $current_dir = basename(getcwd());
+        $current_dir = basename(dirname(__FILE__));
         $full_path = $current_dir."/themes/".$this->get_config('theme')."/style.css";
         // If the theme doesn't exist, try the fallback css
         if(!file_exists($full_path)) {
@@ -96,11 +99,11 @@
     }
 
     function set_icon($item) {
-        $current_dir = basename(getcwd());
+        $current_dir = basename(dirname(__FILE__));
         $icons_path = $current_dir."/themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
-        if(is_dir(getcwd()."/".$this->get_config('files_dir')."/".$item)) {
+        if(is_dir($this->get_real_path($item, "dir"))) {
             return $this->normalize_slashes($icons_path."/directory.svg");
         }
 
@@ -115,7 +118,7 @@
 
         if(file_exists($icons_path."/".$icon)) {
             return $this->normalize_slashes($icons_path."/".$icon);
-        } elseif(file_exists("themes/icons/".$icon)){
+        } elseif(file_exists($current_dir."/themes/icons/".$icon)){
             return $current_dir."/themes/icons/".$icon;
         } else {
             if(file_exists($icons_path."/unknown.svg")) {
