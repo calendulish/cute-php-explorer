@@ -35,17 +35,10 @@ date_default_timezone_set($CuteExplorer->get_config("timezone"));
     <link href="<?=$CuteExplorer->set_theme()?>" rel="stylesheet" type="text/css" />
     <title><?=$CuteExplorer->get_config('title')?></title>
     <script type="text/javascript">
-    function hide(){
+    function change(style){
         mtime = document.getElementsByClassName('mtime');
         for(var i = 0; i < mtime.length; i++) {
-            mtime[i].style.display = 'none';
-        };
-    };
-
-    function show() {
-        mtime = document.getElementsByClassName('mtime');
-        for(var i = 0; i < mtime.length; i++) {
-            mtime[i].style.display = 'table-cell';
+            mtime[i].style.display = style;
         };
     };
 
@@ -54,7 +47,7 @@ date_default_timezone_set($CuteExplorer->get_config("timezone"));
         || document.documentElement.clientWidth
         || document.body.clientWidth;
 
-        if(width < 700) hide(); else show();
+        if(width < 700) change('none'); else change('table-cell');
     }
 
     window.onload = check_size;
