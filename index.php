@@ -45,7 +45,7 @@ date_default_timezone_set($CuteExplorer->get_config("timezone"));
     function show() {
         mtime = document.getElementsByClassName('mtime');
         for(var i = 0; i < mtime.length; i++) {
-            mtime[i].style.display = 'block';
+            mtime[i].style.display = 'table-cell';
         };
     };
 
