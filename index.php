@@ -35,13 +35,15 @@ if(isset($_POST['login'])) {
         $password = $CuteExplorer->get_config("users")[$_POST['user']];
         if(crypt($user_input, $password) == $password) {
             $_SESSION['users'] = $_POST['user'];
+            // reload for changes to take effect
+            header('Location: '.$CuteExplorer->make_query($CuteExplorer->get_value('dir')));
         }
     }
 }
 // If the user try to logout, so logout and reload the page.
 if(isset($_POST['logout'])&&isset($_SESSION['users'])) {
     unset($_SESSION['users']);
-    header('Location: index.php');
+    header('Location: '.$CuteExplorer->make_query($CuteExplorer->get_value('dir')));
     exit(0);
 }
 
@@ -60,7 +62,7 @@ if($CuteExplorer->get_value('dir')) {
             // If a match is found, check if user is logged.
             //If not, back and shows a info mesage.
             if(!isset($_SESSION['users'])) {
-                header('Location: index.php?error_code=403');
+                header('Location: ?error_code=403');
                 exit;
             }
             break;
