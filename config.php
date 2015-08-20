@@ -60,7 +60,15 @@ $_CONFIG['merged_extensions'] = array(
 // You can see the available formats at:
 // http://php.net/manual/en/function.date.php
 $_CONFIG['file_mtime_format'] = "M d, Y - h:m";
+
 // Adjust the timezone here.
 // You can see the available timzeones at:
 // http://php.net/manual/en/timezones.php
 $_CONFIG['timezone'] = "Etc/UTC";
+
+// You can define users and special permissions here.
+// Use the securepass.php for generate a secure hash for your password.
+// Below is an example with the user "testuser" and the password "testpsw".
+$_CONFIG['users'] = array(
+    'testuser' => '$2y$10$yfdJHtUyz41587CvX6rK6uxJwK5BTt5PoQBvsn6FS5AtwoTvwI2Ze',
+);

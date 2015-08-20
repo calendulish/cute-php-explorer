@@ -140,11 +140,15 @@
             if(substr($current_file, 0, 1) == '.') continue;
             // don't show directories from $hidden_dirs
             if(is_dir($full_path.'/'.$current_file)) {
-                if(!in_array($current_file, $this->get_config('hidden_dirs'))) {
+                // If the user is logged in, show anyway.
+                // If the user is not logged in, check the $hidden_dirs
+                if(isset($_SESSION['users'])||!in_array($current_file, $this->get_config('hidden_dirs'))) {
                     $this->directories[] = $this->get_value('dir').'/'.$current_file;
                 }
             } else { //don't show files from $hidden_files and files matched with hidden_extensions
-                if(!in_array($current_file, $this->get_config('hidden_files'))) {
+                // If the user is logged in, show $hidden_files but hidden $hidden_extensions.
+                // If the user is not logged in, check both $hidden_files and $hidden_extensions
+                if(isset($_SESSION['users'])||!in_array($current_file, $this->get_config('hidden_files'))) {
                     if(!in_array(strtolower(pathinfo($full_path.'/'.$current_file, PATHINFO_EXTENSION)),
                         $this->get_config('hidden_extensions'))) {
                         $this->files[] = $current_file;
@@ -162,6 +166,7 @@
         if($query) {
             parse_str($query, $params);
             $params["dir"] = $current_directory;
+            unset($params["error_code"]);
             $link = "?".urldecode(http_build_query($params));
         } else {
             $link = "?dir=".$current_directory;
