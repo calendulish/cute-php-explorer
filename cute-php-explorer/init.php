@@ -22,6 +22,7 @@ session_start();
 include_once("engine.php");
 
 $CuteExplorer = new CuteExplorer();
+$CuteExplorer->base_dir = basename(getcwd());
 $CuteExplorer->read_dir();
 
 date_default_timezone_set($CuteExplorer->get_config("timezone"));

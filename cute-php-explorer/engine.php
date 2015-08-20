@@ -20,6 +20,7 @@
  class CuteExplorer {
     var $directories;
     var $files;
+    var $base_dir;
 
     function normalize_slashes($path) {
         return preg_replace('#/+#', '/', $path);
@@ -88,19 +89,17 @@
     }
 
     function set_theme() {
-        $current_dir = basename(dirname(__FILE__));
-        $full_path = $current_dir."/themes/".$this->get_config('theme')."/style.css";
+        $full_path = $this->base_dir."/themes/".$this->get_config('theme')."/style.css";
         // If the theme doesn't exist, try the fallback css
         if(!file_exists($full_path)) {
-            return $current_dir."/themes/style.css";
+            return $this->base_dir."/themes/style.css";
         }
 
         return $full_path;
     }
 
     function set_icon($item) {
-        $current_dir = basename(dirname(__FILE__));
-        $icons_path = $current_dir."/themes/".$this->get_config('theme')."/icons/";
+        $icons_path = $this->base_dir."/themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
         if(is_dir($this->get_real_path($item, "dir"))) {
@@ -118,13 +117,13 @@
 
         if(file_exists($icons_path."/".$icon)) {
             return $this->normalize_slashes($icons_path."/".$icon);
-        } elseif(file_exists($current_dir."/themes/icons/".$icon)){
-            return $current_dir."/themes/icons/".$icon;
+        } elseif(file_exists($this->base_dir."/themes/icons/".$icon)){
+            return $this->base_dir."/themes/icons/".$icon;
         } else {
             if(file_exists($icons_path."/unknown.svg")) {
                 return $this->normalize_slashes($icons_path."/unknown.svg");
             } else {
-                return $current_dir."/themes/icons/unknown.svg";
+                return $this->base_dir."/themes/icons/unknown.svg";
             }
         }
     }
