@@ -1,4 +1,4 @@
-    <h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
+<h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
 <?php
 // If the user is not logged in, show the login form.
 if(!isset($_SESSION['users'])) {

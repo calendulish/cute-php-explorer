@@ -1,4 +1,3 @@
-
 <!--
  * The Cute PHP explorer is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General Public License
@@ -16,8 +15,6 @@
  * Lara Maia <dev@lara.click> © 2015
 -->
 
-<meta name="viewport" content="width=device-width" />
-<meta charset="utf-8" />
 <link href="<?=$CuteExplorer->set_theme()?>" rel="stylesheet" type="text/css" />
 <title><?=$CuteExplorer->get_config('title')?></title>
 <script type="text/javascript">

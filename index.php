@@ -17,9 +17,11 @@ include_once('cute-php-explorer/init.php');
 <html lang="en_US">
 
 <head>
-    <!-- don't write anything before that include -->
-    <?php include_once('cute-php-explorer/head.php'); ?>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
     <!-- Here you can put more head tags -->
+    <?php include_once('cute-php-explorer/head.php'); ?>
+    <!-- Here you can put more styles, scripts -->
 </head>
 
 <body>
