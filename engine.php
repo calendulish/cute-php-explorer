@@ -157,6 +157,7 @@
         if($query) {
             parse_str($query, $params);
             $params["dir"] = $current_directory;
+            unset($params["error_code"]);
             $link = "?".urldecode(http_build_query($params));
         } else {
             $link = "?dir=".$current_directory;
