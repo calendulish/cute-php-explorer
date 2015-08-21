@@ -51,9 +51,12 @@ $_CONFIG['merged_extensions'] = array(
     "sh"       => array("zsh", "csh", "tcsh", "ksh", "run", "fish", "bash"),
 );
 
- // You can hidden some files,folder,extensions if you need.
- $_CONFIG['hidden_dirs']       = array("themes");
- $_CONFIG['hidden_files']      = array("");
+ // You can hide some files, directories, extensions if you need.
+ // The path is relative to the current location of your index.php. In
+ // other words, the variable $files_dir is not considered here.
+ // Absolute paths (starting with '/') will not work for security reasons.
+ $_CONFIG['hidden_dirs']       = array("cute-php-explorer");
+ $_CONFIG['hidden_files']      = array("directory/example.file");
  $_CONFIG['hidden_extensions'] = array("php", "css");
 
 // Adjust the file mtime (modified time) format here.

@@ -20,6 +20,7 @@
  class CuteExplorer {
     var $directories;
     var $files;
+    var $base_dir;
 
     function normalize_slashes($path) {
         return preg_replace('#/+#', '/', $path);
@@ -38,19 +39,22 @@
         }
     }
 
-    function get_public_path($file) {
+    function get_public_path($file, $type = "file") {
         // Get current $path from URI
         $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
         // FIXME: Remove the index.php from $path
         $path = str_replace("index.php", "", $path);
         $path .= '/'.$this->get_config('files_dir');
-        $full_path = $path.'/'.$this->get_value('dir')."/".$file;
-        return $this->normalize_slashes($full_path);
+        if($type != 'dir') {
+            $path .= '/'.$this->get_value('dir');
+        }
+        $path .= "/".$file;
+        return $this->normalize_slashes($path);
     }
 
-    function get_real_path($file) {
+    function get_real_path($file, $type = "file") {
         $path = $_SERVER['DOCUMENT_ROOT'];
-        return $this->normalize_slashes($path.'/'.$this->get_public_path($file));
+        return $this->normalize_slashes($path.'/'.$this->get_public_path($file, $type));
     }
 
     function get_file_size($file) {
@@ -85,20 +89,20 @@
     }
 
     function set_theme() {
-        $full_path = "themes/".$this->get_config('theme')."/style.css";
+        $full_path = $this->base_dir."/themes/".$this->get_config('theme')."/style.css";
         // If the theme doesn't exist, try the fallback css
         if(!file_exists($full_path)) {
-            return "themes/style.css";
+            return $this->base_dir."/themes/style.css";
         }
 
         return $full_path;
     }
 
     function set_icon($item) {
-        $icons_path = "themes/".$this->get_config('theme')."/icons/";
+        $icons_path = $this->base_dir."/themes/".$this->get_config('theme')."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
-        if(is_dir(getcwd()."/".$this->get_config('files_dir')."/".$item)) {
+        if(is_dir($this->get_real_path($item, "dir"))) {
             return $this->normalize_slashes($icons_path."/directory.svg");
         }
 
@@ -113,13 +117,13 @@
 
         if(file_exists($icons_path."/".$icon)) {
             return $this->normalize_slashes($icons_path."/".$icon);
-        } elseif(file_exists("themes/icons/".$icon)){
-            return "themes/icons/".$icon;
+        } elseif(file_exists($this->base_dir."/themes/icons/".$icon)){
+            return $this->base_dir."/themes/icons/".$icon;
         } else {
             if(file_exists($icons_path."/unknown.svg")) {
                 return $this->normalize_slashes($icons_path."/unknown.svg");
             } else {
-                return "themes/icons/unknown.svg";
+                return $this->base_dir."/themes/icons/unknown.svg";
             }
         }
     }
@@ -127,29 +131,29 @@
     function read_dir() {
         $this->directories = array();
         $this->files = array();
-        $full_path = $this->get_config('files_dir').'/'.$this->get_value('dir');
+        $full_path = realpath($this->get_config('files_dir').'/'.$this->get_value('dir'));
         // If the param is not a directory, show an error
         if(!is_dir($full_path)) {
             header('Location: index.php?error_code=404');
         }
-
         $pDir = opendir($full_path);
-
         while(false !== ($current_file = readdir($pDir))) {
             // ignore directories starting with '.' (previous or hidden)
             if(substr($current_file, 0, 1) == '.') continue;
+            // Get the real public path from $current_file (not absolute)
+            $real_file_path = substr($full_path."/".$current_file, strlen(getcwd())+1);
             // don't show directories from $hidden_dirs
-            if(is_dir($full_path.'/'.$current_file)) {
+            if(is_dir($real_file_path)) {
                 // If the user is logged in, show anyway.
                 // If the user is not logged in, check the $hidden_dirs
-                if(isset($_SESSION['users'])||!in_array($current_file, $this->get_config('hidden_dirs'))) {
+                if(isset($_SESSION['users'])||!in_array($real_file_path, $this->get_config('hidden_dirs'))) {
                     $this->directories[] = $this->get_value('dir').'/'.$current_file;
                 }
             } else { //don't show files from $hidden_files and files matched with hidden_extensions
                 // If the user is logged in, show $hidden_files but hidden $hidden_extensions.
                 // If the user is not logged in, check both $hidden_files and $hidden_extensions
-                if(isset($_SESSION['users'])||!in_array($current_file, $this->get_config('hidden_files'))) {
-                    if(!in_array(strtolower(pathinfo($full_path.'/'.$current_file, PATHINFO_EXTENSION)),
+                if(isset($_SESSION['users'])||!in_array($real_file_path, $this->get_config('hidden_files'))) {
+                    if(!in_array(strtolower(pathinfo($real_file_path, PATHINFO_EXTENSION)),
                         $this->get_config('hidden_extensions'))) {
                         $this->files[] = $current_file;
                     }
