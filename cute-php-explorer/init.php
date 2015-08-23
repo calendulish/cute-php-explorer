@@ -22,7 +22,10 @@ session_start();
 include_once("engine.php");
 
 $CuteExplorer = new CuteExplorer();
-$CuteExplorer->base_dir = basename(getcwd());
+//FIXME: We needs the path of current file, but in some cases a file can
+// call this from another directory, and it will cause a fail to get the
+// current path from getcwd. The dirname(__FILE__) can be an alternative.
+$CuteExplorer->base_dir = basename(dirname(__FILE__));
 $CuteExplorer->read_dir();
 
 date_default_timezone_set($CuteExplorer->get_config("timezone"));
