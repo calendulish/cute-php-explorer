@@ -17,8 +17,8 @@
 // This file don't needs to be updated with git or cute-php-explorer.
 
 // don't write anything before these includes
-include_once('config.php');
-include_once('cute-php-explorer/init.php');
+require_once('config.php');
+require_once('cute-php-explorer/init.php');
 // Here you can put your php functions
 ?>
 
