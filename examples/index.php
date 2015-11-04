@@ -1,11 +1,20 @@
 <?php
 // Think of it like a sample file
 
-// Use the file config.php for setting configure options
-// for cute-php-explorer.
+// You can clone the git repository and use as an component/module
+// with yours projects. Example:
+// I have a website project into site/ folder.
+// I want to integrate cute-php-explorer into my project:
+// $ cd site/
+// $ git clone https://github.com/ShyPixie/cute-php-explorer.git
+// Then edit your index.php in accordance with example files.
 
-// You can put anything in this file, and it don't needs to be updated.
-// Only update files from cute-php-explorer folder.
+// If you want to use only the cute-php-explorer, without any
+// website to handle, then only copy the examples to a main folder:
+// $ cp cute-php-explorer/examples/* .
+
+// Remember to edit the configuration options (config.php).
+// This file don't needs to be updated with git or cute-php-explorer.
 
 // don't write anything before these includes
 include_once('config.php');
