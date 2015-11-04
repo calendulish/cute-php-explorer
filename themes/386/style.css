@@ -47,6 +47,9 @@ p {
   border: 4px double #fff;
   box-shadow: 0 0 0 4px #0aa
 }
+.error {
+    color: #dd0000;
+}
 .current_directory {
   padding: 5px;
   color: #bbb;

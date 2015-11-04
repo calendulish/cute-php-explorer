@@ -134,11 +134,11 @@
         $full_path = realpath($this->get_config('files_dir').'/'.$this->get_value('dir'));
         // When the user is not cool (block access to internal folders)
         if(strpos($this->get_value('dir'), '..') !== false) {
-            header('Location: index.php?error_code=403');
+            $this->make_error('403');
         }
         // If the param is not a directory, show an error
         if(!is_dir($full_path)) {
-            header('Location: index.php?error_code=404');
+            $this->make_error('404');
         }
         $pDir = opendir($full_path);
         while(false !== ($current_file = readdir($pDir))) {
@@ -185,6 +185,21 @@
 
     function make_link($current_file) {
         return $this->get_public_path($current_file);
+    }
+
+    function make_error($code) {
+      $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+      if($query) {
+          parse_str($query, $params);
+          unset($params["dir"]);
+          $params["error_code"] = $code;
+          $link = "?".urldecode(http_build_query($params));
+      } else {
+          $link = "?error_code=".$code;
+      }
+
+      header('Location: '.$link);
     }
 
     function get_previous_dir($current_directory) {

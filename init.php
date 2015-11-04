@@ -65,7 +65,7 @@ if($CuteExplorer->get_value('dir')) {
             // If a match is found, check if user is logged.
             //If not, back and shows a info mesage.
             if(!isset($_SESSION['users'])) {
-                header('Location: ?error_code=403');
+                $CuteExplorer->make_error('403');
                 exit;
             }
             break;

@@ -32,6 +32,9 @@ body {
 .title {
     color: #0066ff;
 }
+.error {
+    color: #dd0000;
+}
 table {
     width: 100%;
     border-collapse: collapse;
