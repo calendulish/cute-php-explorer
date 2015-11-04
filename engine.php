@@ -132,6 +132,7 @@
         $this->directories = array();
         $this->files = array();
         $full_path = realpath($this->get_config('files_dir').'/'.$this->get_value('dir'));
+        $public_path = substr($full_path, strlen(getcwd())+1);
         // When the user is not cool (block access to internal folders)
         if(strpos($this->get_value('dir'), '..') !== false) {
             $this->make_error('403');
@@ -140,24 +141,26 @@
         if(!is_dir($full_path)) {
             $this->make_error('404');
         }
+        // check if the user can access current directory
+        if(!isset($_SESSION['users'])&&in_array($public_path, $this->get_config('hidden_dirs'))) {
+            $this->make_error('403');
+        }
         $pDir = opendir($full_path);
         while(false !== ($current_file = readdir($pDir))) {
             // ignore directories starting with '.' (previous or hidden)
             if(substr($current_file, 0, 1) == '.') continue;
-            // Get the real public path from $current_file (not absolute)
-            $real_file_path = substr($full_path."/".$current_file, strlen(getcwd())+1);
             // don't show directories from $hidden_dirs
-            if(is_dir($real_file_path)) {
+            if(is_dir($public_path.'/'.$current_file)) {
                 // If the user is logged in, show anyway.
                 // If the user is not logged in, check the $hidden_dirs
-                if(isset($_SESSION['users'])||!in_array($real_file_path, $this->get_config('hidden_dirs'))) {
+                if(isset($_SESSION['users'])||!in_array($public_path.'/'.$current_file, $this->get_config('hidden_dirs'))) {
                     $this->directories[] = $this->get_value('dir').'/'.$current_file;
                 }
             } else { //don't show files from $hidden_files and files matched with hidden_extensions
                 // If the user is logged in, show $hidden_files but hidden $hidden_extensions.
                 // If the user is not logged in, check both $hidden_files and $hidden_extensions
-                if(isset($_SESSION['users'])||!in_array($real_file_path, $this->get_config('hidden_files'))) {
-                    if(!in_array(strtolower(pathinfo($real_file_path, PATHINFO_EXTENSION)),
+                if(isset($_SESSION['users'])||!in_array($public_path.'/'.$current_file, $this->get_config('hidden_files'))) {
+                    if(!in_array(strtolower(pathinfo($public_path.'/'.$current_file, PATHINFO_EXTENSION)),
                         $this->get_config('hidden_extensions'))) {
                         $this->files[] = $current_file;
                     }
