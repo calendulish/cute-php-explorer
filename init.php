@@ -19,7 +19,7 @@
 
 session_start();
 
-include_once("engine.php");
+require_once("engine.php");
 
 $CuteExplorer = new CuteExplorer();
 //FIXME: We needs the path of current file, but in some cases a file can
@@ -70,5 +70,13 @@ if($CuteExplorer->get_value('dir')) {
             }
             break;
         }
+    }
+}
+
+if(isset($_POST['theme'])) {
+    $_SESSION['theme'] = $_POST['theme'];
+} else {
+    if(!isset($_SESSION['theme'])) {
+        $_SESSION['theme'] = $CuteExplorer->get_config('theme');
     }
 }

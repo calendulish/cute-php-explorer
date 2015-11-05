@@ -89,7 +89,7 @@
     }
 
     function set_theme() {
-        $full_path = $this->base_dir."/themes/".$this->get_config('theme')."/style.css";
+        $full_path = $this->base_dir."/themes/".$_SESSION['theme']."/style.css";
         // If the theme doesn't exist, try the fallback css
         if(!file_exists($full_path)) {
             return $this->base_dir."/themes/style.css";
@@ -99,7 +99,7 @@
     }
 
     function set_icon($item) {
-        $icons_path = $this->base_dir."/themes/".$this->get_config('theme')."/icons/";
+        $icons_path = $this->base_dir."/themes/".$_SESSION['theme']."/icons/";
         $icon = $this->get_file_extension($item).".svg";
 
         if(is_dir($this->get_real_path($item, "dir"))) {

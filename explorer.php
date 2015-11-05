@@ -90,6 +90,16 @@ if($CuteExplorer->get_value('dir')) {
     }
 ?>
     </table>
+    <form method="POST" action="">
+        <p class="theme">
+            Select a theme here:
+            <select name='theme' onchange='this.form.submit()'>
+                    <option <?=($_SESSION['theme'] == 'purple')?'selected':''?>>purple</option>
+                    <option <?=($_SESSION['theme'] == 'blue')?'selected':''?>>blue</option>
+                    <option <?=($_SESSION['theme'] == '386')?'selected':''?>>386</option>
+            </select>
+        </p>
+    </form>
     <p>Cute PHP Explorer © 2015 &lt;dev@lara.click&gt;</p>
     <p>The icons are based on MeliaSVG icon theme pack.<br/>
        Thanks to Andrea Soragna.</p>
