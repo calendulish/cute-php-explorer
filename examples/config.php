@@ -69,6 +69,9 @@ $_CONFIG['file_mtime_format'] = "M d, Y - h:m";
 // http://php.net/manual/en/timezones.php
 $_CONFIG['timezone'] = "Etc/UTC";
 
+// Enable or Disable the login form (boolean)
+$_CONFIG['login'] = true;
+
 // You can define users and special permissions here.
 // Use the securepass.php for generate a secure hash for your password.
 // Below is an example with the user "testuser" and the password "testpsw".

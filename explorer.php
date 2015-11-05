@@ -3,15 +3,15 @@
 if($CuteExplorer->get_value('error_code') == 404) {
     print('<p class="error">The file or directory you tried to access does not exist.</p>');
 }
-
-// If the user is not logged in, show the login form.
-if(!isset($_SESSION['users'])) {
-// If the user tried access a protected file or folder,
-// show the info message.
 if($CuteExplorer->get_value('error_code') == 403) {
     print("<p class='error'>You don't have permission to access the requested page or file.</p>\n");
     print("<p class='error'>Please, if you need to access, login in the form bellow.</p>\n");
 }
+
+// If the user is not logged in and form is enabled
+// then show the login form.
+if($CuteExplorer->get_config('login')) {
+    if(!isset($_SESSION['users'])) {
 ?>
     <form method="post" action="">
         <p class="login">
@@ -21,12 +21,12 @@ if($CuteExplorer->get_value('error_code') == 403) {
         </p>
     </form>
 <?php
-    // If the user or password is incorrect, show a info message.
-    if(isset($_POST['login'])) {
-        print("<p class='error'>Incorrect login. Try again.</p>");
-    }
-// If the user is already logged in, show the user info and logout button.
-} else {
+        // If the user or password is incorrect, show a info message.
+        if(isset($_POST['login'])) {
+            print("<p class='error'>Incorrect login. Try again.</p>");
+        }
+    // If the user is already logged in, show the user info and logout button.
+    } else {
 ?>
     <form method="post" action="">
         <p>
@@ -35,6 +35,7 @@ if($CuteExplorer->get_value('error_code') == 403) {
         </p>
     </form>
 <?php
+    }
 }
 
 if($CuteExplorer->get_value('dir')) {
