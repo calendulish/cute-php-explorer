@@ -69,6 +69,12 @@ $_CONFIG['file_mtime_format'] = "M d, Y - h:m";
 // http://php.net/manual/en/timezones.php
 $_CONFIG['timezone'] = "Etc/UTC";
 
+// Enable or Disable current directory (boolean)
+$_CONFIG['current_directory'] = true;
+
+// Enable or Disable theme selection form (boolean)
+$_CONFIG['theme_form'] = true;
+
 // Enable or Disable the login form (boolean)
 $_CONFIG['login'] = true;
 

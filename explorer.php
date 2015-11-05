@@ -38,10 +38,12 @@ if($CuteExplorer->get_config('login')) {
     }
 }
 
-if($CuteExplorer->get_value('dir')) {
-    print('<p class="current_directory">~'.$CuteExplorer->get_value('dir')."</p>\n");
-} else {
-    print("<p class='current_directory'>~/</p>\n");
+if($CuteExplorer->get_config('current_directory')) {
+    if($CuteExplorer->get_value('dir')) {
+        print('<p class="current_directory">~'.$CuteExplorer->get_value('dir')."</p>\n");
+    } else {
+        print("<p class='current_directory'>~/</p>\n");
+    }
 }
 ?>
     <table>
@@ -91,6 +93,9 @@ if($CuteExplorer->get_value('dir')) {
     }
 ?>
     </table>
+<?php
+if($CuteExplorer->get_config('theme_form')) {
+?>
     <form method="POST" action="">
         <p class="theme">
             Select a theme here:
@@ -101,6 +106,9 @@ if($CuteExplorer->get_value('dir')) {
             </select>
         </p>
     </form>
+<?php
+}
+?>
     <p>Cute PHP Explorer © 2015 &lt;dev@lara.click&gt;</p>
     <p>The icons are based on MeliaSVG icon theme pack.<br/>
        Thanks to Andrea Soragna.</p>
