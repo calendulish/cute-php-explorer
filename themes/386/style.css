@@ -20,52 +20,61 @@
 @font-face {
   font-family: 'DOS';
   src: url('Fixedsys500c.woff');
-  src: local('☺'), url('Fixedsys500c.woff') format('woff')
+  src: local('☺'), url('Fixedsys500c.woff') format('woff');
 }
 body {
-  width: 85%;
+  width: 75%;
   margin: 0 auto;
-  background-color: #000084;
-  color: #bbb;
-  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace;
+  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
+  font-size: 18px !important;
+}
+/* Force font-family. */
+a, p, h1, h2, h3, h4, h5, h6 {
+  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
 }
 p {
-  padding: 9px 14px 9px 14px;
-  margin: 9px 4px 9px 4px;
-  font-size: 12px;
+  padding: 10px;
+  font-size: 12px !important;
   text-align: center;
   color: #fff;
+  background-color: darkblue;
   border: 2px solid #bbb;
+}
+.current_directory {
+  color: #bbb;
+  background-color: #000;
+  padding: 3px;
+  border: 0;
+  text-align: left;
+  margin: 0 auto 10px;
 }
 .title {
   padding: 16px 21px;
-  margin-bottom: 20px;
-  font-size: 18px;
-  line-height: 20px;
+  margin: 0 5px 20px;
+  text-align: left;
   color: #fff;
   background-color: #0aa;
   border: 4px double #fff;
-  box-shadow: 0 0 0 4px #0aa
+  outline: 4px solid #0aa;
 }
 .error {
     color: #dd0000;
 }
-.current_directory {
-  padding: 5px;
-  color: #bbb;
-  background-color: #000;
-  border: 0;
-  text-align: left;
-  font-size: 18px;
-}
 table {
   width: 100%;
-  text-align: left;
   border-collapse: collapse;
+  border-spacing: 0;
+  text-align: left;
+}
+table tr {
+    background-color: darkblue;
+    color: #bbb;
 }
 table .header{
   background-color: #bbb;
-  color: darkblue;
+}
+table tr.header a {
+    color: darkblue;
 }
 table tr:hover {
   background-color: #0aa;
