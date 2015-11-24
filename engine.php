@@ -132,9 +132,11 @@
         $this->directories = array();
         $this->files = array();
         $full_path = realpath($this->get_config('files_dir').'/'.$this->get_value('dir'));
-        $public_path = substr($full_path, strlen(getcwd())+1).'/';
-        // FIXME: Fix $public_path when $files_dir is '.'
-        if($public_path == '/') $public_path = "";
+        if(!$full_path == getcwd()) {
+            $public_path = substr($full_path, strlen(getcwd())+1).'/';
+        } else {
+            $public_path = "";
+        }
 
         // When the user is not cool (block access to internal folders)
         if(strpos($this->get_value('dir'), '..') !== false) {
