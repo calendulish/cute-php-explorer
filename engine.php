@@ -132,7 +132,7 @@
         $this->directories = array();
         $this->files = array();
         $full_path = realpath($this->get_config('files_dir').'/'.$this->get_value('dir'));
-        if(!$full_path == getcwd()) {
+        if($full_path != getcwd()) {
             $public_path = substr($full_path, strlen(getcwd())+1).'/';
         } else {
             $public_path = "";
