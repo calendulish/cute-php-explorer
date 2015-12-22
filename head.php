@@ -33,6 +33,8 @@ function check_size() {
     if(width < 700) change('none'); else change('table-cell');
 }
 
-window.onload = check_size;
-window.addEventListener('resize', check_size);
+window.addEventListener('load', function() {
+    check_size();
+    window.addEventListener('resize', check_size);
+});
 </script>
