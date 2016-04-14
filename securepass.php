@@ -38,7 +38,7 @@ if(isset($_POST["passwd"])) {
 
 <body>
     <p>You can use this page to generate a secured string of your password until the support for control panel is complete.</p>
-    <form method="post" action="">
+    <form method="post">
         User: <input type="text" pattern=".{3,}" required title="You need at least 3 characters" name="user" size="20">
         Password: <input type="password" pattern=".{5,}" required title="You need at least 5 characters" name="passwd" size="20">
         <input type="submit" name="login" value="Generate">

@@ -13,7 +13,7 @@ if($CuteExplorer->get_value('error_code') == 403) {
 if($CuteExplorer->get_config('login')) {
     if(!isset($_SESSION['users'])) {
 ?>
-    <form method="post" action="">
+    <form method="post">
         <p class="login">
             User: <input type="text" pattern=".{3,}" required title="You need at least 3 characters" name="user" size="20">
             Password: <input type="password" pattern=".{5,}" required title="You need at least 5 characters" name="passwd" size="20">
@@ -28,7 +28,7 @@ if($CuteExplorer->get_config('login')) {
     // If the user is already logged in, show the user info and logout button.
     } else {
 ?>
-    <form method="post" action="">
+    <form method="post">
         <p>
             You are logged in as <?=$_SESSION['users']?>.
             <input type="submit" name="logout" value="Logout">
@@ -96,7 +96,7 @@ if($CuteExplorer->get_config('current_directory')) {
 <?php
 if($CuteExplorer->get_config('theme_form')) {
 ?>
-    <form method="POST" action="">
+    <form method="POST">
         <p class="theme">
             Select a theme here:
             <select name='theme' onchange='this.form.submit()'>
