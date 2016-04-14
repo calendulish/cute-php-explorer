@@ -16,7 +16,6 @@
 -->
 
 <link href="<?=$CuteExplorer->set_theme()?>" rel="stylesheet" type="text/css" />
-<title><?=$CuteExplorer->get_config('title')?></title>
 <script type="text/javascript">
 function change(style){
     mtime = document.getElementsByClassName('mtime');

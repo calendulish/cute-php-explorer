@@ -26,6 +26,7 @@ require_once('cute-php-explorer/init.php');
 <html lang="en_US">
 
 <head>
+    <title><?=$CuteExplorer->get_config('title')?></title>
     <meta name="viewport" content="width=device-width" />
     <meta charset="utf-8">
     <!-- Here you can put more head tags -->
