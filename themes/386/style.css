@@ -1,4 +1,4 @@
-  /*
+/*
  * The Cute PHP explorer is free software: you can redistribute it
  * and/or modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation, either version 3 of the
@@ -18,90 +18,92 @@
  */
 
 @font-face {
-  font-family: 'DOS';
-  src: url('Fixedsys500c.woff');
-  src: local('☺'), url('Fixedsys500c.woff') format('woff');
+    font-family: 'DOS';
+    src: url('Fixedsys500c.woff');
+    src: local('☺'), url('Fixedsys500c.woff') format('woff');
 }
 body {
-  width: 75%;
-  margin: 0 auto;
-  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
-  font-size: 18px !important;
+    width: 75%;
+    margin: 0 auto;
+    font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
+    font-size: 18px !important;
 }
+
 /* Force font-family. */
+
 a, p, h1, h2, h3, h4, h5, h6 {
-  font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
+    font-family: DOS, "Lucida Console", "Courier New", Courier, monospace !important;
 }
 p {
-  padding: 10px;
-  font-size: 12px !important;
-  text-align: center;
-  color: #fff;
-  background-color: darkblue;
-  border: 2px solid #bbb;
+    padding: 10px;
+    font-size: 12px !important;
+    text-align: center;
+    color: #fff;
+    background-color: darkblue;
+    border: 2px solid #bbb;
 }
 .current_directory {
-  color: #bbb;
-  background-color: #000;
-  padding: 3px;
-  border: 0;
-  text-align: left;
-  margin: 0 auto 10px;
+    color: #bbb;
+    background-color: #000;
+    padding: 3px;
+    border: 0;
+    text-align: left;
+    margin: 0 auto 10px;
 }
 .title {
-  padding: 16px 21px;
-  margin: 0 5px 20px;
-  text-align: left;
-  color: #fff;
-  background-color: #0aa;
-  border: 4px double #fff;
-  outline: 4px solid #0aa;
+    padding: 16px 21px;
+    margin: 0 5px 20px;
+    text-align: left;
+    color: #fff;
+    background-color: #0aa;
+    border: 4px double #fff;
+    outline: 4px solid #0aa;
 }
 .error {
     color: #dd0000;
 }
 table {
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
-  text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-align: left;
 }
 table tr {
     background-color: darkblue;
     color: #bbb;
 }
-table .header{
-  background-color: #bbb;
+table .header {
+    background-color: #bbb;
 }
 table tr.header a {
     color: darkblue;
 }
 table tr:hover {
-  background-color: #0aa;
-  color: white;
+    background-color: #0aa;
+    color: white;
 }
 table td {
-  padding: 3px;
-  border-top: 2px solid darkgray;
+    padding: 3px;
+    border-top: 2px solid darkgray;
 }
 table .icon {
-  width: 20px;
-  text-align: center;
+    width: 20px;
+    text-align: center;
 }
 table .name {
     width: 100%;
 }
 table .size {
-  text-align: right;
-  padding-right: 10px;
-  white-space: nowrap;
+    text-align: right;
+    padding-right: 10px;
+    white-space: nowrap;
 }
 table .center {
-  text-align: center;
-  color: grey;
+    text-align: center;
+    color: grey;
 }
 table .mtime {
-  text-align: center;
-  padding-right: 10px;
-  white-space: nowrap;
+    text-align: center;
+    padding-right: 10px;
+    white-space: nowrap;
 }
