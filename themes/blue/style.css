@@ -24,10 +24,10 @@ body {
 }
 .current_directory {
     background-color: #cce0ff;
-    padding: 3px;
     text-align: left;
-    margin: 0 auto 10px;
     box-shadow: 0 0 1px grey;
+    width: 100%;
+    line-height: 20px;
 }
 .title {
     color: #0066ff;

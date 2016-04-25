@@ -45,10 +45,10 @@ p {
 .current_directory {
     color: #bbb;
     background-color: #000;
-    padding: 3px;
     border: 0;
     text-align: left;
-    margin: 0 auto 10px;
+    width: 100%;
+    line-height: 20px;
 }
 .title {
     padding: 16px 21px;
