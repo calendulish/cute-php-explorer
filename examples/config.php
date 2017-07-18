@@ -19,14 +19,14 @@
 
 $_CONFIG['title'] = "Cute PHP Explorer";
 
-// if your files is on another directory, set here.
+// If your files is on another directory, define here.
  $_CONFIG['files_dir'] = ".";
 
 // You can define an icon size (in pixels)
 $_CONFIG['icon_size'] = 28;
 
 // You can define a theme. Currently you can use:
-// purple, blue or "386".
+// purple, blue or 386.
 $_CONFIG['theme'] = "purple";
 
 // You can merge some extensions using this array.
@@ -36,9 +36,9 @@ $_CONFIG['theme'] = "purple";
 // and put a file called "<image>.svg" on the folder of current icon theme.
 //
 // Example 2:
-// If you want some extensions with same icon file, you can write:
+// If you want some extensions with the same icon file, you can write:
 // "txt" => array("doc", "conf");
-// in this example, all files *.doc and *.conf will use the txt icon.
+// in this example *.doc and *.conf will use the txt icon.
 $_CONFIG['merged_extensions'] = array(
     "txt"      => array("conf", "config", "doc", "docx"),
     "xls"      => array("xlsx"),
