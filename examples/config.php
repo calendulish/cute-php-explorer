@@ -47,7 +47,7 @@ $_CONFIG['merged_extensions'] = array(
     "jpg"      => array("jpeg"),
     "html"     => array("htm"),
     "py"       => array("pyo", "pyc", "pyd", "pyw"),
-    "pl"       => array("plx","perl"),
+    "pl"       => array("plx", "perl"),
     "sh"       => array("zsh", "csh", "tcsh", "ksh", "run", "fish", "bash"),
 );
 

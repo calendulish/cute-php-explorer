@@ -57,12 +57,16 @@ if(isset($_POST['logout'])&&isset($_SESSION['users'])) {
 if($CuteExplorer->get_value('dir')) {
     $directories = explode('/', $CuteExplorer->get_value('dir'));
     // Remove empty element case the first directory are a '/'
-    if($directories[0] == "") array_shift($directories);
+    if($directories[0] == "") {
+        array_shift($directories);
+    }
     // Check if the first directory exists in hidden_dirs, if not
     // check all subdirectories until a match is found.
     $directory = array($directories[0]);
     for($e=0;$e<count($directories);$e++) {
-        if($e!=0) array_push($directory, "/", $directories[$e]);
+        if($e!=0) {
+            array_push($directory, "/", $directories[$e]);
+        }
         if(in_array(implode($directory), $CuteExplorer->get_config('hidden_dirs'))) {
             // If a match is found, check if user is logged.
             //If not, back and shows a info mesage.
