@@ -1,7 +1,7 @@
 # Cute PHP explorer
-![Cute PHP explorer](http://downloads.lara.click/tmp/cute.png)
+![Cute PHP explorer](http://lara.click/downloads/tmp/cute.png)
 
-## See the live demo [HERE](http://downloads.lara.click)
+## See the live demo [HERE](http://lara.click/?page=downloads) and [HERE](http://acidhub.click/Downloads/)
 
 #### You can use this like an "component". Check the examples folder.
 
@@ -11,4 +11,4 @@ The Cute PHP explorer is distributed in the hope that it will be useful, but WIT
 
 You should have received a copy of the GNU General Public License along with this program.  If not, see [http://www.gnu.org/licenses/](http://www.gnu.org/licenses/).
 
-Lara Maia [dev@lara.click](mailto:dev@lara.click) © 2015
+Lara Maia [dev@lara.click](mailto:dev@lara.click) © 2015 ~ 2017
