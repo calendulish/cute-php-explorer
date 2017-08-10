@@ -60,6 +60,7 @@ table tr:nth-child(even) {
 table tr:hover {
     background-color: darkblue;
     background-color: rgba(0, 102, 255, 0.5);
+    cursor: pointer;
 }
 table tr a:link, table tr a:hover, table tr a:visited {
     color: inherit;

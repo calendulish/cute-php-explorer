@@ -81,6 +81,7 @@ table tr.header a {
 table tr:hover {
     background-color: #0aa;
     color: white;
+    cursor: pointer;
 }
 table tr a:link, table tr a:hover, table tr a:visited {
     color: inherit;
