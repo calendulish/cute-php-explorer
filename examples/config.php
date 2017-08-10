@@ -61,6 +61,9 @@ $_CONFIG['merged_extensions'] = array(
 
  // Bypass exe extension blocking (boolean)
  // (Use when your host doesn't accept files with .exe extension)
+ // You must send file path to a php script.
+ // E.g.: RewriteRule ^(.*)\.exe.gz$ forcedownload.php?filename=$1.exe [L,NC,QSA]
+ // so rewrite the file (attach on header) and send as stream to browser.
  $_CONFIG['bypass_exe_blocking'] = false;
 
 // Adjust the file mtime (modified time) format here.
