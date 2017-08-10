@@ -59,6 +59,10 @@ $_CONFIG['merged_extensions'] = array(
  $_CONFIG['hidden_files']      = array("directory/example.file");
  $_CONFIG['hidden_extensions'] = array("php", "css");
 
+ // Bypass exe extension blocking (boolean)
+ // (Use when your host doesn't accept files with .exe extension)
+ $_CONFIG['bypass_exe_blocking'] = false;
+
 // Adjust the file mtime (modified time) format here.
 // You can see the available formats at:
 // http://php.net/manual/en/function.date.php

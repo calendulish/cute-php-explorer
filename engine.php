@@ -192,6 +192,12 @@
     }
 
     function make_link($current_file) {
+        if($this->get_config('bypass_exe_blocking')) {
+            $extension = strtolower(pathinfo($this->get_real_path($current_file), PATHINFO_EXTENSION));
+            if($extension == "exe") {
+                $current_file = $current_file . ".gz";
+            }
+        }
         return $this->get_public_path($current_file);
     }
 
