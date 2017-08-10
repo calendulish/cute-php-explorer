@@ -60,6 +60,10 @@ table tr:hover {
     background-color: purple;
     background-color: rgba(130, 74, 128, 0.3);
 }
+table tr a:link, table tr a:hover, table tr a:visited {
+    color: inherit;
+    text-decoration: none;
+}
 table td {
     padding: 3px;
 }

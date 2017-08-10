@@ -73,7 +73,9 @@ if($CuteExplorer->get_config('current_directory')) {
             <td class="icon">
                 <img alt="directory" src="<?=$CuteExplorer->set_icon($current_directory)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
             </td>
-            <td class="name"><?=basename($current_directory)?></td>
+            <td class="name">
+                <a href="<?=$CuteExplorer->make_query($current_directory)?>"><?=basename($current_directory)?></a>
+            </td>
             <td class="size center" colspan=2>Folder</td>
         </tr>
 <?php
@@ -85,7 +87,9 @@ if($CuteExplorer->get_config('current_directory')) {
             <td class="icon">
                 <img alt="file" src="<?=$CuteExplorer->set_icon($current_file)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
             </td>
-            <td class="name"><?=$current_file?></td>
+            <td class="name">
+                <a href="<?=$CuteExplorer->make_link($current_file)?>"><?=$current_file?></a>
+            </td>
             <td class="size"><?=$CuteExplorer->get_file_size($current_file)?></td>
             <td class="mtime"><?=$CuteExplorer->get_file_mtime($current_file)?></td>
         </tr>
