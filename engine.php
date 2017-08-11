@@ -153,7 +153,9 @@
         $pDir = opendir($full_path);
         while(false !== ($current_file = readdir($pDir))) {
             // ignore directories starting with '.' (previous or hidden)
-            if(substr($current_file, 0, 1) == '.') continue;
+            if(substr($current_file, 0, 1) == '.') {
+                continue;
+            }
             // don't show directories from $hidden_dirs
             if(is_dir($full_path.'/'.$current_file)) {
                 // If the user is logged in, show anyway.
@@ -202,18 +204,18 @@
     }
 
     function make_error($code) {
-      $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+        $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
-      if($query) {
-          parse_str($query, $params);
-          unset($params["dir"]);
-          $params["error_code"] = $code;
-          $link = "?".urldecode(http_build_query($params));
-      } else {
-          $link = "?error_code=".$code;
-      }
+        if($query) {
+            parse_str($query, $params);
+            unset($params["dir"]);
+            $params["error_code"] = $code;
+            $link = "?".urldecode(http_build_query($params));
+        } else {
+            $link = "?error_code=".$code;
+        }
 
-      header('Location: '.$link);
+        header('Location: '.$link);
     }
 
     function get_previous_dir($current_directory) {
