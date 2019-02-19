@@ -1,4 +1,3 @@
-<h1 class="title"><?=$CuteExplorer->get_config('title')?></h1>
 <?php
 if($CuteExplorer->get_value('error_code') == 404) {
     print('<p class="error">The file or directory you tried to access does not exist.</p>');
@@ -45,59 +44,48 @@ if($CuteExplorer->get_config('current_directory')) {
         print("<p class='current_directory'>~/</p>\n");
     }
 }
-?>
-    <table>
-        <tr class="header">
-            <td class="icon"></td>
-            <td class="name"><a>Name</a></td>
-            <td class="size"><a>Size</a></td>
-            <td class="mtime"><a>Modified Time</a></td>
-        </tr>
-<?php
     // make a item for previous directory
     if($CuteExplorer->get_value('dir')) {
 ?>
-        <tr onclick="window.location='<?=$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))?>'">
-            <td class="icon">
+        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))?>'">
+            <div class="icon">
                 <img alt="previous directory" src="<?=$CuteExplorer->set_icon($_GET['dir'])?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
-            </td>
-            <td class="name" colspan=3>
+            </div>
+            <div class="name" colspan=3>
                 <a href="<?=$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))?>">..</a>
-            </td>
-        </tr>
+            </div>
+        </div>
 <?php }
     // make a item for each folder
     foreach($CuteExplorer->directories as $current_directory) {
 ?>
-        <tr onclick="window.location='<?=$CuteExplorer->make_query($current_directory)?>'">
-            <td class="icon">
+        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query($current_directory)?>'">
+            <div class="icon">
                 <img alt="directory" src="<?=$CuteExplorer->set_icon($current_directory)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
-            </td>
-            <td class="name">
+            </div>
+            <div class="name">
                 <a href="<?=$CuteExplorer->make_query($current_directory)?>"><?=basename($current_directory)?></a>
-            </td>
-            <td class="size center" colspan=2>Folder</td>
-        </tr>
+            </div>
+            <div class="size center" colspan=2>Folder</div>
+        </div>
 <?php
     }
     // make a item for each file
     foreach($CuteExplorer->files as $current_file) {
 ?>
-        <tr onclick="window.location='<?=$CuteExplorer->make_link($current_file)?>'">
-            <td class="icon">
+        <div class="item" onclick="window.location='<?=$CuteExplorer->make_link($current_file)?>'">
+            <div class="icon">
                 <img alt="file" src="<?=$CuteExplorer->set_icon($current_file)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
-            </td>
-            <td class="name">
+            </div>
+            <div class="name">
                 <a href="<?=$CuteExplorer->make_link($current_file)?>"><?=$current_file?></a>
-            </td>
-            <td class="size"><?=$CuteExplorer->get_file_size($current_file)?></td>
-            <td class="mtime"><?=$CuteExplorer->get_file_mtime($current_file)?></td>
-        </tr>
+            </div>
+            <div class="size"><?=$CuteExplorer->get_file_size($current_file)?></div>
+            <div class="mtime"><?=$CuteExplorer->get_file_mtime($current_file)?></div>
+        </div>
 <?php
     }
-?>
-    </table>
-<?php
+
 if($CuteExplorer->get_config('theme_form')) {
 ?>
     <form method="POST">
@@ -113,6 +101,3 @@ if($CuteExplorer->get_config('theme_form')) {
 <?php
 }
 ?>
-    <p>Cute PHP Explorer © 2015 &lt;dev@lara.click&gt;</p>
-    <p>The icons are based on MeliaSVG icon theme pack.<br/>
-       Thanks to Andrea Soragna.</p>
