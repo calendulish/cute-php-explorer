@@ -42,6 +42,7 @@ if(isset($_POST['login'])) {
             $_SESSION['users'] = $_POST['user'];
             // reload for changes to take effect
             header('Location: '.$CuteExplorer->make_query($CuteExplorer->get_value('dir')));
+            exit(0);
         }
     }
 }
