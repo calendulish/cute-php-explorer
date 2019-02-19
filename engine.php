@@ -241,6 +241,7 @@
       }
 
       header('Location: '.$link);
+      exit(1);
     }
 
     function get_previous_dir($current_directory) {
