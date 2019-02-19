@@ -100,7 +100,12 @@
 
     function set_icon($item) {
         $icons_path = $this->base_dir."/themes/".$_SESSION['theme']."/icons/";
-        $icon = $this->get_file_extension($item).".svg";
+
+        if($this->get_file_extension($item) == "app") {
+            $icon = $item.".svg";
+        } else {
+            $icon = $this->get_file_extension($item).".svg";
+        }
 
         if(is_dir($this->get_real_path($item, "dir"))) {
             return $this->normalize_slashes($icons_path."/directory.svg");
