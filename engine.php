@@ -60,6 +60,10 @@
     function get_file_size($file) {
         $rawsize = filesize($this->get_real_path($file));
 
+        if($this->get_file_extension($file) == 'app') {
+            return rand(1, 30)." Mb";
+        }
+
         if($rawsize < pow(2, 10)) {
             return $rawsize." bytes";
         } elseif($rawsize < pow(2, 20)) {
