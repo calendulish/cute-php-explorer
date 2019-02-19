@@ -81,7 +81,6 @@ if($CuteExplorer->get_config('current_directory')) {
                 <a href="<?=$CuteExplorer->make_link($current_file)?>"><?=$current_file?></a>
             </div>
             <div class="size"><?=$CuteExplorer->get_file_size($current_file)?></div>
-            <div class="mtime"><?=$CuteExplorer->get_file_mtime($current_file)?></div>
         </div>
 <?php
     }
