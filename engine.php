@@ -194,28 +194,44 @@
     }
 
     function make_link($current_file) {
+        $extension = strtolower(pathinfo($this->get_real_path($current_file), PATHINFO_EXTENSION));
+
         if($this->get_config('bypass_exe_blocking')) {
-            $extension = strtolower(pathinfo($this->get_real_path($current_file), PATHINFO_EXTENSION));
             if($extension == "exe") {
                 $current_file = $current_file . ".gz";
             }
         }
+
+        if($extension == "app") {
+            $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+
+            // If any query exists, check if "[?&]program=" is already present and updates it.
+            if($query) {
+                parse_str($query, $params);
+                $params["program"] = $current_file;
+                unset($params["error_code"]);
+                return "?".urldecode(http_build_query($params));
+            } else {
+                return "?program=".$current_file;
+            }
+        }
+
         return $this->get_public_path($current_file);
     }
 
     function make_error($code) {
-        $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
+      $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
-        if($query) {
-            parse_str($query, $params);
-            unset($params["dir"]);
-            $params["error_code"] = $code;
-            $link = "?".urldecode(http_build_query($params));
-        } else {
-            $link = "?error_code=".$code;
-        }
+      if($query) {
+          parse_str($query, $params);
+          unset($params["dir"]);
+          $params["error_code"] = $code;
+          $link = "?".urldecode(http_build_query($params));
+      } else {
+          $link = "?error_code=".$code;
+      }
 
-        header('Location: '.$link);
+      header('Location: '.$link);
     }
 
     function get_previous_dir($current_directory) {
