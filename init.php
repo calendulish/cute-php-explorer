@@ -41,7 +41,7 @@ if(isset($_POST['login'])) {
         if(crypt($user_input, $password) == $password) {
             $_SESSION['users'] = $_POST['user'];
             // reload for changes to take effect
-            header('Location: '.$CuteExplorer->make_query($CuteExplorer->get_value('dir')));
+            header('Location: '.$CuteExplorer->make_query('dir', $CuteExplorer->get_value('dir')));
             exit(0);
         }
     }
@@ -49,7 +49,7 @@ if(isset($_POST['login'])) {
 // If the user try to logout, so logout and reload the page.
 if(isset($_POST['logout'])&&isset($_SESSION['users'])) {
     unset($_SESSION['users']);
-    header('Location: '.$CuteExplorer->make_query($CuteExplorer->get_value('dir')));
+    header('Location: '.$CuteExplorer->make_query('dir', $CuteExplorer->get_value('dir')));
     exit(0);
 }
 

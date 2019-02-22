@@ -47,24 +47,24 @@ if($CuteExplorer->get_config('current_directory')) {
     // make a item for previous directory
     if($CuteExplorer->get_value('dir')) {
 ?>
-        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))?>'">
+        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query('dir', $CuteExplorer->get_previous_dir($_GET['dir']))?>'">
             <div class="icon">
                 <img alt="previous directory" src="<?=$CuteExplorer->set_icon($_GET['dir'])?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
             </div>
             <div class="name" colspan=3>
-                <a href="<?=$CuteExplorer->make_query($CuteExplorer->get_previous_dir($_GET['dir']))?>">..</a>
+                <a href="<?=$CuteExplorer->make_query('dir', $CuteExplorer->get_previous_dir($_GET['dir']))?>">..</a>
             </div>
         </div>
 <?php }
     // make a item for each folder
     foreach($CuteExplorer->directories as $current_directory) {
 ?>
-        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query($current_directory)?>'">
+        <div class="item" onclick="window.location='<?=$CuteExplorer->make_query('dir', $current_directory)?>'">
             <div class="icon">
                 <img alt="directory" src="<?=$CuteExplorer->set_icon($current_directory)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
             </div>
             <div class="name">
-                <a href="<?=$CuteExplorer->make_query($current_directory)?>"><?=basename($current_directory)?></a>
+                <a href="<?=$CuteExplorer->make_query('dir', $current_directory)?>"><?=basename($current_directory)?></a>
             </div>
             <div class="size center" colspan=2>Folder</div>
         </div>

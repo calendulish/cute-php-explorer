@@ -186,17 +186,17 @@
         closedir($pDir);
     }
 
-    function make_query($current_directory) {
+    function make_query($param, $value, $unset_ = 'error_code') {
         $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
         // If any query exists, check if "[?&]dir=" is already present and updates it.
         if($query) {
             parse_str($query, $params);
-            $params["dir"] = $current_directory;
-            unset($params["error_code"]);
+            $params[$param] = $value;
+            unset($params[$unset_]);
             $link = "?".urldecode(http_build_query($params));
         } else {
-            $link = "?dir=".$current_directory;
+            $link = "?" . $param . "=" . $value;
         }
 
         return $link;
@@ -212,34 +212,14 @@
         }
 
         if($extension == "app") {
-            $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
-
-            // If any query exists, check if "[?&]program=" is already present and updates it.
-            if($query) {
-                parse_str($query, $params);
-                $params["program"] = $current_file;
-                unset($params["error_code"]);
-                return "?".urldecode(http_build_query($params));
-            } else {
-                return "?program=".$current_file;
-            }
+            return $this->make_query('program', $current_file);
         }
 
         return $this->get_public_path($current_file);
     }
 
     function make_error($code) {
-      $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
-
-      if($query) {
-          parse_str($query, $params);
-          unset($params["dir"]);
-          $params["error_code"] = $code;
-          $link = "?".urldecode(http_build_query($params));
-      } else {
-          $link = "?error_code=".$code;
-      }
-
+      $link = $this->make_query('error_code', $code, 'dir');
       header('Location: '.$link);
       exit(1);
     }
