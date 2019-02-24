@@ -186,14 +186,18 @@
         closedir($pDir);
     }
 
-    function make_query($param, $value, $unset_ = 'error_code') {
+    function make_query($param, $value, $unset_ = ['error_code']) {
         $query = parse_url($_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'], PHP_URL_QUERY);
 
         // If any query exists, check if "[?&]dir=" is already present and updates it.
         if($query) {
             parse_str($query, $params);
             $params[$param] = $value;
-            unset($params[$unset_]);
+
+            foreach($unset_ as $tag) {
+                unset($params[$tag]);
+            }
+
             $link = "?".urldecode(http_build_query($params));
         } else {
             $link = "?" . $param . "=" . $value;
@@ -219,7 +223,7 @@
     }
 
     function make_error($code) {
-      $link = $this->make_query('error_code', $code, 'dir');
+      $link = $this->make_query('error_code', $code, ['dir']);
       header('Location: '.$link);
       exit(1);
     }
