@@ -218,7 +218,7 @@
         }
 
         if($extension == "app") {
-            return $this->make_query('program', $current_file);
+            return $this->make_query('program', $current_file, ['task']);
         }
 
         if($extension == "post") {
