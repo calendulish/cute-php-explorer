@@ -107,6 +107,8 @@
 
         if($this->get_file_extension($item) == "app") {
             $icon = $item.".svg";
+        } elseif($this->get_file_extension($item) == "post") {
+            $icon = "documents.svg";
         } else {
             $icon = $this->get_file_extension($item).".svg";
         }
@@ -217,6 +219,10 @@
 
         if($extension == "app") {
             return $this->make_query('program', $current_file);
+        }
+
+        if($extension == "post") {
+            return $this->make_query('post', $current_file);
         }
 
         return $this->get_public_path($current_file);
