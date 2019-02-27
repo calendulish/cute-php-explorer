@@ -72,8 +72,12 @@ if($CuteExplorer->get_config('current_directory')) {
     }
     // make a item for each file
     foreach($CuteExplorer->files as $current_file) {
+        if($CuteExplorer->get_file_extension($current_file) == "app") {
+            print("<div class='item app' onclick=\"window.location='" . $CuteExplorer->make_link($current_file) . "'\">");
+        } else {
+            print("<div class='item' onclick=\"window.location='" . $CuteExplorer->make_link($current_file) . "'\">");
+        }
 ?>
-        <div class="item" onclick="window.location='<?=$CuteExplorer->make_link($current_file)?>'">
             <div class="icon">
                 <img alt="file" src="<?=$CuteExplorer->set_icon($current_file)?>" width="<?=$CuteExplorer->get_config('icon_size')?>" />
             </div>
