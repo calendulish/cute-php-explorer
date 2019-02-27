@@ -1,0 +1,70 @@
+/*
+ * The Cute PHP explorer is free software: you can redistribute it
+ * and/or modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ *
+ * The Cute PHP explorer is distributed in the hope that it will be
+ * useful, but WITHOUT ANY WARRANTY; without even the implied warranty
+ * of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+ * General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Lara Maia <dev@lara.click> © 2015
+ *
+ */
+
+.current_directory {
+    background-color: #fff9ff;
+    text-align: left;
+    box-shadow: 0 0 1px grey;
+    width: 100%;
+    line-height: 20px;
+}
+.title {
+    color: #825f82;
+}
+.error {
+    color: #dd0000;
+}
+div .item {
+    display: grid;
+    grid-template-areas:
+        'icon name'
+        'icon size';
+    grid-template-columns: auto 2fr;
+    grid-template-rows: 1fr 1fr;
+    margin-top: 5px;
+}
+div .item:hover {
+    background-color: purple;
+    background-color: rgba(130, 74, 128, 0.3);
+    cursor: pointer;
+}
+div .item a:link, div .item a:hover, div .item a:visited {
+    text-decoration: none;
+    text-shadow: -1px 0 2px black, 0 1px 2px black, 1px 0 2px black, 0 -1px 2px black;
+    color: white;
+    white-space: nowrap;
+    font-size: 14px;
+}
+div .icon {
+    grid-area: icon;
+        align-self: center;
+    justify-self: start;
+}
+div .name {
+    grid-area: name;
+    align-self: end;
+    justify-self: start;
+}
+div .size {
+    grid-area: size;
+    align-self: start;
+    justify-self: start;
+    white-space: nowrap;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
