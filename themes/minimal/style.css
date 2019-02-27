@@ -16,11 +16,6 @@
  *
  */
 
-body {
-    width: 75%;
-    margin: 0 auto;
-    font-family: Tahoma, Geneva, sans-serif;
-}
 .current_directory {
     background-color: #fff9ff;
     text-align: left;
@@ -35,13 +30,21 @@ body {
     color: #dd0000;
 }
 div .item {
-    display: inline-grid;
-    width: 170px;
+    width: 100px;
+    padding: 5px;
 }
 div .item:hover {
-    background-color: purple;
-    background-color: rgba(130, 74, 128, 0.3);
+    background-color: #ddc7d6;
     cursor: pointer;
+}
+div.item:hover div.name {
+    background-color: #ddc7d6;
+    white-space: normal;
+    word-break: break-all;
+    position: absolute;
+    width: 100px;
+    margin-left: -5px;
+    padding-left: 7px;
 }
 div .item a:link, div .item a:hover, div .item a:visited {
     text-decoration: none;
@@ -49,7 +52,10 @@ div .item a:link, div .item a:hover, div .item a:visited {
     color: white;
 }
 div .name {
-    padding-bottom: 5px;
+    padding: 3px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 div .size {
     white-space: nowrap;
