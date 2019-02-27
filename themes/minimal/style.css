@@ -30,8 +30,13 @@
     color: #dd0000;
 }
 div .item {
-    width: 100px;
+    width: 105px;
     padding: 5px;
+}
+div .item.app {
+    background-color: #bf8f8f26;
+    box-shadow: 2px 2px 5px #ff00004f;
+    border-radius: 5px;
 }
 div .item:hover {
     background-color: #ddc7d6;

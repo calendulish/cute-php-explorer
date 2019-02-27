@@ -31,11 +31,9 @@
 }
 div .item {
     display: grid;
-    grid-template-areas:
-        'icon name'
-        'icon size';
+    grid-template-areas: 'icon name';
     grid-template-columns: auto 2fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr;
     margin-top: 5px;
 }
 div .item:hover {
@@ -52,12 +50,12 @@ div .item a:link, div .item a:hover, div .item a:visited {
 }
 div .icon {
     grid-area: icon;
-        align-self: center;
+    align-self: center;
     justify-self: start;
 }
 div .name {
     grid-area: name;
-    align-self: end;
+    align-self: center;
     justify-self: start;
 }
 div .size {
