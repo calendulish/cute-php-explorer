@@ -161,8 +161,17 @@
         if(!isset($_SESSION['users'])&&in_array(rtrim($public_path, '/'), $this->get_config('hidden_dirs'))) {
             $this->make_error('403');
         }
-        $pDir = opendir($full_path);
-        while(false !== ($current_file = readdir($pDir))) {
+        $files = scandir($full_path);
+
+        if($this->get_value('program')) {
+            usort($files, function($x, $y) use ($full_path) {
+                return filemtime($full_path.'/'.$x) < filemtime($full_path.'/'.$y);
+            });
+        } else {
+            sort($files);
+        }
+
+        foreach($files as $current_file) {
             // ignore directories starting with '.' (previous or hidden)
             if(substr($current_file, 0, 1) == '.') {
                 continue;
@@ -185,7 +194,6 @@
                 }
             }
         }
-        closedir($pDir);
     }
 
     function make_query($param, $value, $unset_ = ['error_code']) {
