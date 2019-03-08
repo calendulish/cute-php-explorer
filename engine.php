@@ -110,11 +110,11 @@
         }
 
         if($this->get_file_extension($item) == "app") {
-            $icon = $item.".svg";
+            $icon = $item;
         } elseif($this->get_file_extension($item) == "post") {
-            $icon = "documents.svg";
+            $icon = "documents";
         } else {
-            $icon = $this->get_file_extension($item).".svg";
+            $icon = $this->get_file_extension($item);
         }
 
         // For each extension in $_CONFIG['merged_extensions'], check your values
@@ -122,14 +122,22 @@
             // If current file extension is found on these values
             // change the icon to reflect the current $extension value.
             if(in_array($this->get_file_extension($item), $this->get_config("merged_extensions")[$extension])) {
-                $icon = $extension.".svg";
+                $icon = $extension;
             }
         }
 
-        if(file_exists($icons_path."/".$icon)) {
-            return $this->normalize_slashes($icons_path."/".$icon);
-        } elseif(file_exists($this->base_dir."/themes/icons/".$icon)){
-            return $this->base_dir."/themes/icons/".$icon;
+        if(file_exists($icons_path."/".$icon.".svg")) {
+            return $this->normalize_slashes($icons_path."/".$icon.".svg");
+        } elseif(file_exists($icons_path."/".$icon.".png")) {
+            return $this->normalize_slashes($icons_path."/".$icon.".png");
+        } elseif(file_exists($icons_path."/".$icon.".jpg")) {
+            return $this->normalize_slashes($icons_path."/".$icon.".jpg");
+        } elseif(file_exists($this->base_dir."/themes/icons/".$icon.".svg")){
+            return $this->base_dir."/themes/icons/".$icon.".svg";
+        } elseif(file_exists($this->base_dir."/themes/icons/".$icon.".png")){
+            return $this->base_dir."/themes/icons/".$icon.".png";
+        } elseif(file_exists($this->base_dir."/themes/icons/".$icon.".jpg")){
+            return $this->base_dir."/themes/icons/".$icon.".jpg";
         } else {
             if(file_exists($icons_path."/unknown.svg")) {
                 return $this->normalize_slashes($icons_path."/unknown.svg");
